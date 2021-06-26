@@ -1,1 +1,16 @@
-<app-grid></app-grid>
+<h1>{{title}}</h1>
+
+
+<div class="container">
+
+  <div class="col"> 
+
+    <div *ngFor="let pokemon of pokeList">
+      <poke-preview [pokemon]="pokemon" >
+      </poke-preview>
+    </div>
+
+  </div> 
+
+</div>
+

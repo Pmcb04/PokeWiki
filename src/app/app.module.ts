@@ -3,22 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GridComponent } from './grid/grid.component';
-import { PokeDetailsComponent } from './poke-details/poke-details.component';
-import { PokeBoxComponent } from './poke-box/poke-box.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PokePreviewComponent } from './components/poke-preview/poke-preview.component';
+import { PokemonService } from './services/pokemon-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GridComponent,
-    PokeDetailsComponent,
-    PokeBoxComponent
+    PokePreviewComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PokemonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
