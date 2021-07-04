@@ -1,20 +1,16 @@
 .border{
-    
-    /* border-color: black;
-    border-style: solid; 
-    border: 3px; */
+  text-align: center;
 
-    display: flex;
-    justify-content: center;
+  padding: 10px;
+  margin: 10px;
 
-    padding: 10px;
-    margin: 10px;
-/* 
-    width: 200px;
-    height: 100px; */
+  width: 150px;
+  height: 270px;
 
+  float : left;
 }
 
-.border p{
-    padding: 5px;
+.border:hover{
+  background-color: lavender;
+  cursor: pointer;
 }

@@ -9,8 +9,8 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   // Obtiene todos los pokemon
-  getAllPokemon() {
-    return this.http.get<any>(`${this.url}/pokemon/`)
+  getAllPokemon(offset : number, limit : number) {
+    return this.http.get<any>(`${this.url}/pokemon/?offset=${offset}&limit=${limit}`)
   }
 
 
@@ -19,5 +19,9 @@ export class PokemonService {
     return this.http.get<any>(`${this.url}/pokemon/${pokemonId}`)
   }
 
+  // Obtiene el pokemon por url pasado por parametro
+  getPokemonByURL(url : string){
+    return this.http.get<any>(url);
+  }
 
 }

@@ -1,9 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pokemon } from 'src/app/model/pokemon';
-
-
-import { PokemonService } from '../../services/pokemon-service.service';
-
+import  { Pokemon } from '../../model/pokemon'
 
 @Component({
   selector: 'poke-preview',
@@ -15,24 +11,25 @@ export class PokePreviewComponent implements OnInit {
 
   @Input() public pokemon : Pokemon;
 
-  constructor(private pokeService : PokemonService){
-    this.pokemon = new Pokemon(0, "", "");
+  constructor(){
+    this.pokemon = new Pokemon(0, "", "", [""]);
+    //this.setColorBorder();
   }
+
+  // setColorBorder(){
+  //   switch (this.pokemon.types[0]) {
+  //     case "bug":
+  //       document.documentElement.style.setProperty('--border-color', 'green'); // color border
+  //       break;
+  //     case "fire":
+  //       document.documentElement.style.setProperty('--border-color', 'red'); // color border
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // }
 
    ngOnInit(): void {
   }
-
-  // searchPokemon(): void {
-  //   // llamamos al metodo getPokemon y le pasamos el identificador del pókemon
-  //   this.pokeService.getPokemon(this.number)
-  //     .subscribe(
-  //       data => {
-  //         console.log("pokemon", data);
-  //         this.pokemon = new Pokemon(
-  //           data.id, data.name, data.sprites.front_default
-  //         );
-  //       }
-  //     )
-  // }
 
 }

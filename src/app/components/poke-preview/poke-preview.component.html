@@ -1,7 +1,10 @@
 <div class="border">
 
   <img src="{{pokemon.front_sprite}}" alt="{{pokemon.name}} image">
-  <p>{{pokemon.name}}</p>
+  <p><b>{{pokemon.name}}</b></p>
   <p>#{{pokemon.id}}</p>
 
+  <div class="types-list">
+    <poke-type  class="types" *ngFor="let type of pokemon.types" [name]="type" ></poke-type>
+  </div>
 </div>

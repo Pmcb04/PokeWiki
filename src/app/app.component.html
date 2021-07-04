@@ -1,16 +1,14 @@
 <h1>{{title}}</h1>
-
+<!-- <input type="text" placeholder="Pokémon (ID o nombre)" id="pokemon_search" > -->
 
 <div class="container">
-
-  <div class="col"> 
-
-    <div *ngFor="let pokemon of pokeList">
-      <poke-preview [pokemon]="pokemon" >
-      </poke-preview>
-    </div>
-
-  </div> 
-
+  <div class="pokemon-list">
+    <poke-preview *ngFor="let pokemon of pokeList" [pokemon]="pokemon" >
+    </poke-preview>
+  </div>
 </div>
+
+<!--
+<input type="button" value="Previous" ng-click="previousList()">
+<input type="button" value="Next" ng-click="nextList()"> -->
 
