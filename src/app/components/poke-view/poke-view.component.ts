@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'poke-view',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokeViewComponent implements OnInit {
 
-  constructor() { }
+  name : string = "";
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log("Pokemon view ", this.name);
+    this.name = this.route.snapshot.params['name'];
   }
 
 }

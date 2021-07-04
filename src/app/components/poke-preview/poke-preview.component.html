@@ -1,10 +1,12 @@
-<div class="border">
+<a class="link" routerLink="/name/{{pokemon.name}}" routerLinkActive="active">
+  <div class="border">
 
-  <img src="{{pokemon.front_sprite}}" alt="{{pokemon.name}} image">
-  <p><b>{{pokemon.name}}</b></p>
-  <p>#{{pokemon.id}}</p>
+    <img src="{{pokemon.front_sprite}}" alt="{{pokemon.name}} image">
+    <p><b>{{pokemon.name}}</b></p>
+    <p>#{{pokemon.id}}</p>
 
-  <div class="types-list">
-    <poke-type  class="types" *ngFor="let type of pokemon.types" [name]="type" ></poke-type>
+    <div class="types-list">
+      <poke-type  class="types" *ngFor="let type of pokemon.types" [name]="type" ></poke-type>
+    </div>
   </div>
-</div>
+</a>
