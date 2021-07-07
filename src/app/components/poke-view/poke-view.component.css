@@ -1,0 +1,90 @@
+.poke-view{
+  width: 100%;
+}
+
+.poke-view .pokemon , .poke-view .stats{
+  float: left;
+}
+
+.container{
+  height: 100%;
+
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+}
+
+.col{
+  margin: 0;
+  padding: 0;
+}
+
+.row{
+  height: 50%;
+}
+
+.pokemon{
+  width: 50%;
+  height: 200px;
+  text-align: center;
+
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemon *{
+  margin: 10px;
+}
+
+.stats{
+  width: 50%;
+  height: 200px;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(18, 18, 18);
+}
+
+.stat{
+  padding: 5px;
+  margin: 0;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* border: 2px;
+  border-color: black;
+  border-style: solid; */
+
+}
+
+#hp{
+  background-color: rgb(233, 34, 44);
+}
+
+#attack{
+  background-color: rgb(216, 91, 19);
+}
+
+#defense{
+  background-color: rgb(245, 223, 31);
+}
+
+#special_attack{
+  background-color: rgb(41, 213, 243);
+}
+
+#special_defense{
+  background-color: rgb(95, 240, 37);
+}
+
+#speed{
+  background-color: rgb(209, 39, 231);
+}
+

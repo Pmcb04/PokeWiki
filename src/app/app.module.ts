@@ -14,7 +14,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PokeListComponent } from './components/poke-list/poke-list.component';
 
 const routes: Routes = [
-  { path : 'name/:name' , component : PokeViewComponent},
+  { path : 'pokemon' , component : PokeViewComponent},
   { path : '', component : PokeListComponent},
   { path: '**', component: PageNotFoundComponent }
 ];

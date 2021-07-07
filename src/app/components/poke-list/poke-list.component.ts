@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Pokemon } from '../../model/pokemon';
+import { Pokemon, Stats } from '../../model/pokemon';
 import { PokemonService } from '../../services/pokemon-service.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { PokemonService } from '../../services/pokemon-service.service';
   templateUrl: './poke-list.component.html',
   styleUrls: ['./poke-list.component.css']
 })
-export class PokeListComponent implements OnInit {
+export class PokeListComponent implements OnInit{
 
   pokeList : Pokemon[] = Array();
 
@@ -60,16 +60,13 @@ export class PokeListComponent implements OnInit {
     }
   }
 
-  typesPokemon(typesData : any) : string[]{
+  typesPokemon(data : any) : string[]{
+    var types : string[] = [data.length];
 
-    var types : string[] = [typesData.length];
-
-    for (let index = 0; index < typesData.length; index++)
-      types[index] = typesData[index].type.name;
+    for (let index = 0; index < data.length; index++)
+      types[index] = data[index].type.name;
 
     return types;
-
   }
-
 
 }

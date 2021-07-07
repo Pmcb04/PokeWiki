@@ -13,10 +13,14 @@ export class PokemonService {
     return this.http.get<any>(`${this.url}/pokemon/?offset=${offset}&limit=${limit}`)
   }
 
-
   // Obtiene el pokemon con id pasado por parametro
-  getPokemon(pokemonId : number) {
-    return this.http.get<any>(`${this.url}/pokemon/${pokemonId}`)
+  getPokemonById(id : number) {
+    return this.http.get<any>(`${this.url}/pokemon/${id}`)
+  }
+
+  // Obtiene el pokemon con name pasado por parametro
+  getPokemonByName(name : string) {
+    return this.http.get<any>(`${this.url}/pokemon/${name}`)
   }
 
   // Obtiene el pokemon por url pasado por parametro

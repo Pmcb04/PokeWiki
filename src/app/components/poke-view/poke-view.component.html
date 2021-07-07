@@ -1,1 +1,41 @@
-<p>{{name}} Pokemon View</p>
+<div class="poke-view">
+
+  <div class="pokemon">
+    <img class="poke_img" src="{{pokemon.getFrontSprite()}}" alt="{{pokemon.getName()}} image">
+    <p><b>{{pokemon.getName()}}</b></p>
+    <p>#{{pokemon.getID()}}</p>
+  </div>
+
+  <div class="stats">
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p id="hp" class="stat">HP : {{pokemon.getStats().hp.base_stat}} (effort = {{pokemon.getStats().hp.effort}})</p>
+        </div>
+        <div class="col">
+          <p id="attack" class="stat">ATTACK : {{pokemon.getStats().attack.base_stat}} (effort = {{pokemon.getStats().attack.effort}})</p>
+        </div>
+        <div class="col">
+          <p id="defense" class="stat">DEFENSE : {{pokemon.getStats().defense.base_stat}} (effort = {{pokemon.getStats().defense.effort}})</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <p id="special_attack" class="stat">SPECIAL ATTACK : {{pokemon.getStats().special_attack.base_stat}} (effort = {{pokemon.getStats().special_attack.effort}})</p>
+        </div>
+        <div class="col">
+          <p id="special_defense" class="stat">SPECIAL DEFENSE : {{pokemon.getStats().special_defense.base_stat}} (effort = {{pokemon.getStats().special_defense.effort}})</p>
+        </div>
+        <div class="col">
+          <p id="speed" class="stat">SPEED : {{pokemon.getStats().speed.base_stat}} (effort = {{pokemon.getStats().speed.effort}})</p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

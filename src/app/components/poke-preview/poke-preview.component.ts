@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import  { Pokemon } from '../../model/pokemon'
+import { Pokemon } from '../../model/pokemon'
 
 @Component({
   selector: 'poke-preview',
