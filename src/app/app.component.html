@@ -1,12 +1,6 @@
-<h1>{{title}}</h1>
-<!-- <input type="text" placeholder="Pokémon (ID o nombre)" id="pokemon_search" > -->
+<app-header></app-header>
 
-<div class="container">
-  <div class="pokemon-list">
-    <poke-preview *ngFor="let pokemon of pokeList" [pokemon]="pokemon" >
-    </poke-preview>
-  </div>
-</div>
+<router-outlet></router-outlet>
 
 
 <!--

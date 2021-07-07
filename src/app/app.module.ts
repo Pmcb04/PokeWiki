@@ -10,10 +10,12 @@ import { PokePreviewComponent } from './components/poke-preview/poke-preview.com
 import { PokeViewComponent } from './components/poke-view/poke-view.component';
 import { PokeTypeComponent } from './components/poke-type/poke-type.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HeaderComponent } from './components/header/header.component';
+import { PokeListComponent } from './components/poke-list/poke-list.component';
 
 const routes: Routes = [
   { path : 'name/:name' , component : PokeViewComponent},
-  { path : '', component : AppComponent},
+  { path : '', component : PokeListComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -23,7 +25,9 @@ const routes: Routes = [
     PokePreviewComponent,
     PokeTypeComponent,
     PokeViewComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HeaderComponent,
+    PokeListComponent
   ],
   imports: [
     BrowserModule,
