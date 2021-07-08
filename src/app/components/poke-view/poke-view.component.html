@@ -5,12 +5,14 @@
     <div class="info">
       <p id="id">#{{pokemon.getID()}}</p>
       <p id="name">{{pokemon.getName()}}</p>
+      <div class="types-list">
+        <poke-type  class="types" *ngFor="let type of pokemon.getTypes()" [name]="type" ></poke-type>
+      </div>
     </div>
 
   </div>
 
   <div class="stats">
-
     <div class="container">
       <div class="row">
         <div class="col stat" id="hp">
@@ -42,9 +44,6 @@
         </div>
       </div>
     </div>
-
-
-
   </div>
 
 </div>

@@ -14,6 +14,21 @@
   float : left;
 }
 
+.pokemon img{
+  width: 100%;
+}
+
+.pokemon #id{
+  font-style: italic;
+  font-size: small;
+}
+
+.pokemon #name{
+  margin: 0;
+  font-weight: bold;
+  font-size: large;
+}
+
 .pokemon:hover{
   background-color: lavender;
   cursor: pointer;

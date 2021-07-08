@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute} from '@angular/router'
 
 import { Pokemon, Stats } from '../../model/pokemon';
 import { PokemonService } from '../../services/pokemon-service.service';
@@ -12,14 +13,27 @@ export class PokeListComponent implements OnInit{
 
   pokeList : Pokemon[] = Array();
 
+  // attributes for list of pokemon
   limit : number = 151;
   offset : number = 0;
-
   next : string = "";
   previous : string = "";
 
-  constructor(private pokeService : PokemonService){
-    this.getListPokemon(this.pokeList, this.offset, this.limit);
+  // number of pokemon in generation number
+  first_gen : number = 151;
+  second_gen : number = 100;
+  third_gen : number = 135;
+  forth_gen : number = 107;
+  fifth_gen : number = 156;
+  sixth_gen : number = 72;
+  seventh_gen : number = 81;
+  eighth_gen : number = 83;
+
+
+  constructor(private route: ActivatedRoute, private pokeService : PokemonService){
+    this.route.queryParams.subscribe (params =>{
+      this.getListPokemon(this.pokeList, params['offset'], params['limit']);
+    });
 
     // console.log("sort");
     // this.pokeList.sort(function sortPokemon(pok1: Pokemon, pok2: Pokemon) {
@@ -38,8 +52,8 @@ export class PokeListComponent implements OnInit{
     // TODO ver como calcular la lista de pokemon posterior
   }
 
-  getListPokemon(list : Pokemon[], start : number, end : number){
-    this.pokeService.getAllPokemon(start, end).subscribe(
+  getListPokemon(list : Pokemon[], offset : number, limit : number){
+    this.pokeService.getAllPokemon(offset, limit).subscribe(
       data => {
           this.next = data.next;
           this.previous = data.previous;
@@ -49,7 +63,7 @@ export class PokeListComponent implements OnInit{
   }
 
   generatePokemon(data : any, list : Pokemon[]){
-    for (let index = 0; index < this.limit; index++) {
+    for (let index = 0; index < data.results.length; index++) {
         this.pokeService.getPokemonByURL(data.results[index].url)
         .subscribe(
           data =>{

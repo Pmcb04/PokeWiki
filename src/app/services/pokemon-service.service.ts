@@ -13,6 +13,11 @@ export class PokemonService {
     return this.http.get<any>(`${this.url}/pokemon/?offset=${offset}&limit=${limit}`)
   }
 
+  // Obtiene todos los pokemon
+  getAllPokemonByPokedex(pokedex : string) {
+    return this.http.get<any>(`${this.url}/pokedex/${pokedex}`)
+  }
+
   // Obtiene el pokemon con id pasado por parametro
   getPokemonById(id : number) {
     return this.http.get<any>(`${this.url}/pokemon/${id}`)

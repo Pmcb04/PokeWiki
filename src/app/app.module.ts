@@ -12,10 +12,12 @@ import { PokeTypeComponent } from './components/poke-type/poke-type.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PokeListComponent } from './components/poke-list/poke-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   { path : 'pokemon' , component : PokeViewComponent},
-  { path : '', component : PokeListComponent},
+  { path : 'list' , component : PokeListComponent},
+  { path : '', component : HomeComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -27,7 +29,8 @@ const routes: Routes = [
     PokeViewComponent,
     PageNotFoundComponent,
     HeaderComponent,
-    PokeListComponent
+    PokeListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

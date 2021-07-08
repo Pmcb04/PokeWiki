@@ -2,8 +2,8 @@
   <div class="border pokemon">
 
     <img src="{{pokemon.getFrontSprite()}}" alt="{{pokemon.getName()}} image">
-    <p><b>{{pokemon.getName() | titlecase}}</b></p>
-    <p>#{{pokemon.getID()}}</p>
+    <p id="name">{{pokemon.getName() | titlecase}}</p>
+    <p id="id">#{{pokemon.getID()}}</p>
 
     <div class="types-list">
       <poke-type  class="types" *ngFor="let type of pokemon.getTypes()" [name]="type" ></poke-type>

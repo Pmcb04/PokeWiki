@@ -42,17 +42,20 @@
 
 .pokemon p{
   margin: 0;
-  line-height: 40px;
+  line-height: 0px;
 }
 
 .pokemon #name{
   font-size: 100px;
+  line-height: 75px;
+  margin-bottom: 20px;
   font-weight: bold;
   font-variant: small-caps;
+
 }
 
 .pokemon #id{
-  font-size: 40px;
+  font-size: x-large;
 }
 
 .stats{
