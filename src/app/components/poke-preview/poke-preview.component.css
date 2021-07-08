@@ -2,7 +2,7 @@
   color: black;
 }
 
-.border{
+.pokemon{
   text-align: center;
 
   padding: 10px;
@@ -14,7 +14,7 @@
   float : left;
 }
 
-.border:hover{
+.pokemon:hover{
   background-color: lavender;
   cursor: pointer;
 }

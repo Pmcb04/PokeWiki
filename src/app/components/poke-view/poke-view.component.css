@@ -8,10 +8,6 @@
 
 .container{
   height: 100%;
-
-  border: 2px;
-  border-color: black;
-  border-style: solid;
 }
 
 .col{
@@ -25,66 +21,105 @@
 
 .pokemon{
   width: 50%;
-  height: 200px;
-  text-align: center;
-
-  border: 2px;
-  border-color: black;
-  border-style: solid;
+  height: 250px;
+  background-color: beige;
 
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.pokemon *{
-  margin: 10px;
+.pokemon img{
+  float: left;
+  height: auto;
+  width: 30%;
+  padding: 40px;
+  margin-left: 10px;
+}
+
+.pokemon .info{
+  width: 60%;
+}
+
+.pokemon p{
+  margin: 0;
+  line-height: 40px;
+}
+
+.pokemon #name{
+  font-size: 100px;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+.pokemon #id{
+  font-size: 40px;
 }
 
 .stats{
   width: 50%;
-  height: 200px;
+  height: 250px;
   text-align: center;
   font-weight: bold;
   color: rgb(18, 18, 18);
 }
 
 .stat{
-  padding: 5px;
+  padding: 40px 0px;
   margin: 0;
   height: 100%;
 
-  display: flex;
+  background-color: rgb(235, 235, 213);
+
+
+  display: block;
   align-items: center;
   justify-content: center;
 
-  /* border: 2px;
-  border-color: black;
-  border-style: solid; */
-
 }
 
-#hp{
+.stat p{
+  margin: 0;
+}
+
+.base_stat{
+  font-size: medium;
+}
+
+.effort{
+  font-size: small;
+  font-style: italic;
+}
+
+#hp:hover{
   background-color: rgb(233, 34, 44);
+  color:cornsilk;
 }
 
-#attack{
+#attack:hover{
   background-color: rgb(216, 91, 19);
+  color:cornsilk;
 }
 
-#defense{
+#defense:hover{
   background-color: rgb(245, 223, 31);
+  color:cornsilk;
 }
 
-#special_attack{
+#special_attack:hover{
   background-color: rgb(41, 213, 243);
+  color:cornsilk;
 }
 
-#special_defense{
+#special_defense:hover{
   background-color: rgb(95, 240, 37);
+  color:cornsilk;
 }
 
-#speed{
+#speed:hover{
   background-color: rgb(209, 39, 231);
+  color:cornsilk;
 }
+
+
+
 
