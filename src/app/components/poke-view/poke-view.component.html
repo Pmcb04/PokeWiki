@@ -10,40 +10,81 @@
       </div>
     </div>
 
+    <div class="dimensions">
+      <img class="dim-img" src="../../assets/height.svg" alt="height icon">
+      <p>{{pokemon.getHeight()}} </p>
+      <img class="dim-img" src="../../assets/weight.svg" alt="weight icon">
+      <p>{{pokemon.getWeight()}} </p>
+    </div>
+
   </div>
 
   <div class="stats">
     <div class="container">
       <div class="row">
         <div class="col stat" id="hp">
-          <p class="base_stat">HP : {{pokemon.getStats()?.hp?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.hp?.effort}}</p>
+          <p class="base_stat">HP : {{pokemon.getStats()?.getHp()?.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.getStats()?.getHp()?.effort}}</p>
         </div>
         <div class="col stat" id="attack">
-          <p class="base_stat">ATTACK : {{pokemon.getStats()?.attack?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.attack?.effort}}</p>
+          <p class="base_stat">ATTACK : {{pokemon.getStats()?.getAttack()?.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.getStats()?.getAttack()?.effort}}</p>
         </div>
         <div class="col stat" id="defense">
-          <p class="base_stat">DEFENSE : {{pokemon.getStats()?.defense?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.defense?.effort}}</p>
+          <p class="base_stat">DEFENSE : {{pokemon.getStats()?.getDefense()?.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.getStats()?.getDefense()?.effort}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col stat" id="special_attack">
-          <p class="base_stat">SPECIAL ATTACK : {{pokemon.getStats()?.special_attack?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.special_attack?.effort}}</p>
+          <p class="base_stat">SPECIAL ATTACK : {{pokemon.getStats()?.getSpecialAttack()?.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.getStats()?.getSpecialAttack()?.effort}}</p>
         </div>
         <div class="col stat" id="special_defense">
-          <p class="base_stat">SPECIAL DEFENSE : {{pokemon.getStats()?.special_defense?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.special_defense?.effort}}</p>
+          <p class="base_stat">SPECIAL DEFENSE : {{pokemon.getStats()?.getSpecialDefense()?.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.getStats()?.getSpecialDefense()?.effort}}</p>
         </div>
         <div class="col stat" id="speed">
-          <p class="base_stat">SPEED : {{pokemon.getStats()?.speed?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.speed?.effort}}</p>
+          <p class="base_stat">SPEED : {{pokemon.getStats()?.getSpeed()?.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.getStats()?.getSpeed()?.effort}}</p>
         </div>
       </div>
     </div>
   </div>
 
+  <div class="poke-body">
+    <div class="poke-moves">
+      <h2>Movements</h2>
+
+      <table class="table table-borderless">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Level</th>
+            <th scope="col">Power</th>
+            <th scope="col">PP</th>
+            <th scope="col">Accuracy</th>
+            <th scope="col">Effect Chance</th>
+            <th scope="col">Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let move of pokemon.getMoves()">
+            <th scope="row">{{move.getName().replace("-", " ")| titlecase }}</th>
+            <td>{{move.getLevelLearningAt()}}</td>
+            <td>{{move.getPower()}}</td>
+            <td>{{move.getPp()}}</td>
+            <td>{{move.getAccuracy()}}</td>
+            <td>{{move.getEffectChance()}}</td>
+            <td>{{move.getPriority()}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
 </div>
+
+

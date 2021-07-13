@@ -1,8 +1,9 @@
 .poke-view{
   width: 100%;
+  margin: 0;
 }
 
-.poke-view .pokemon , .poke-view .stats{
+.poke-view .pokemon , .poke-view .stats, .poke-view .poke-body{
   float: left;
 }
 
@@ -40,6 +41,10 @@
   width: 60%;
 }
 
+.pokemon .dimensions{
+  width: 10%;
+}
+
 .pokemon p{
   margin: 0;
   line-height: 0px;
@@ -56,6 +61,52 @@
 
 .pokemon #id{
   font-size: x-large;
+}
+
+.dimensions{
+  padding: 30px;
+
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+}
+
+.dimensions p{
+  font-weight: bold;
+  margin: 10px;
+}
+
+.dimensions img{
+  padding: 0;
+  width: 32px;
+}
+
+.poke-body{
+  width: 100%;
+}
+
+.poke-moves{
+  background-color: azure;
+  width: 100%;
+
+  display: block;
+  text-align: center;
+}
+
+.poke-moves h2{
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 10px;
+}
+
+/* Instruccion para poner en la tabla, los valores sin datos con un caracter */
+td:empty::before {content: "-"}
+
+tr:hover{
+  background-color: aqua;
 }
 
 .stats{
@@ -114,7 +165,7 @@
 }
 
 #special_defense:hover{
-  background-color: rgb(95, 240, 37);
+  background-color: mediumspringgreen;
   color:cornsilk;
 }
 
@@ -122,7 +173,4 @@
   background-color: rgb(209, 39, 231);
   color:cornsilk;
 }
-
-
-
 

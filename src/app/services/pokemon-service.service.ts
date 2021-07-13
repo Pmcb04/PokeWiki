@@ -33,4 +33,14 @@ export class PokemonService {
     return this.http.get<any>(url);
   }
 
+  // Obtiene un movimiento por url pasado por parametro
+  getMoveByURL(url : string){
+    return this.http.get<any>(url);
+  }
+
+  // Obtiene un movimiento por nombre pasado por parametro
+  getMoveByName(name : string){
+    return this.http.get<any>(`${this.url}/move/${name}`);
+  }
+
 }

@@ -12,24 +12,10 @@ export class PokePreviewComponent implements OnInit {
   @Input() public pokemon : Pokemon;
 
   constructor(){
-    this.pokemon = new Pokemon(0, "", "", [""]);
-    //this.setColorBorder();
+    this.pokemon = new Pokemon();
   }
 
-  // setColorBorder(){
-  //   switch (this.pokemon.types[0]) {
-  //     case "bug":
-  //       document.documentElement.style.setProperty('--border-color', 'green'); // color border
-  //       break;
-  //     case "fire":
-  //       document.documentElement.style.setProperty('--border-color', 'red'); // color border
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
-
-   ngOnInit(): void {
+  ngOnInit(): void {
   }
 
 }

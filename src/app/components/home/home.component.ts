@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+/*
+  offset -> id pokémon por el que empieza a contar
+  limit  -> número de pokémon que se van a mostrar
+*/
 interface generation{
-  offset : number,
+  offset  : number,
   limit   : number
 };
 
@@ -11,8 +15,7 @@ interface generation{
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  first_gen            : generation = {offset : 0, limit : 151};
+  first_gen            : generation = {offset : 0,   limit : 151};
   second_gen           : generation = {offset : 151, limit : 100};
   third_gen            : generation = {offset : 251, limit : 135};
   forth_gen            : generation = {offset : 386, limit : 107};

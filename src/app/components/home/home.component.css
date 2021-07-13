@@ -1,0 +1,17 @@
+.generaciones{
+  margin-top: 150px;
+}
+
+.gen-link{
+  margin: 10px;
+  display: block;
+
+  text-align: center;
+  text-decoration: none;
+  color: black;
+
+}
+
+.gen-link:hover{
+  color: crimson;
+}

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router'
+import { PokemonService } from 'src/app/services/pokemon-service.service';
 
-import { Pokemon, Stats } from '../../model/pokemon';
-import { PokemonService } from '../../services/pokemon-service.service';
+import { Pokemon } from '../../model/pokemon';
 
 @Component({
   selector: 'poke-list',
@@ -11,35 +11,12 @@ import { PokemonService } from '../../services/pokemon-service.service';
 })
 export class PokeListComponent implements OnInit{
 
-  pokeList : Pokemon[] = Array();
-
-  // attributes for list of pokemon
-  limit : number = 151;
-  offset : number = 0;
-  next : string = "";
-  previous : string = "";
-
-  // number of pokemon in generation number
-  first_gen : number = 151;
-  second_gen : number = 100;
-  third_gen : number = 135;
-  forth_gen : number = 107;
-  fifth_gen : number = 156;
-  sixth_gen : number = 72;
-  seventh_gen : number = 81;
-  eighth_gen : number = 83;
-
+  pokeList : Pokemon[] = [];
 
   constructor(private route: ActivatedRoute, private pokeService : PokemonService){
     this.route.queryParams.subscribe (params =>{
       this.getListPokemon(this.pokeList, params['offset'], params['limit']);
     });
-
-    // console.log("sort");
-    // this.pokeList.sort(function sortPokemon(pok1: Pokemon, pok2: Pokemon) {
-    //     console.log("comparando ", pok1.name, " con ", pok2.name);
-    //     return pok1.id - pok2.id;
-    // });
   }
 
   ngOnInit(){}
@@ -55,24 +32,26 @@ export class PokeListComponent implements OnInit{
   getListPokemon(list : Pokemon[], offset : number, limit : number){
     this.pokeService.getAllPokemon(offset, limit).subscribe(
       data => {
-          this.next = data.next;
-          this.previous = data.previous;
-          this.generatePokemon(data, list);
+        for (let index = 0; index < data.results.length; index++) {
+          this.generatePokemon(list, data.results[index].url);
+        }
       }
     );
+
   }
 
-  generatePokemon(data : any, list : Pokemon[]){
-    for (let index = 0; index < data.results.length; index++) {
-        this.pokeService.getPokemonByURL(data.results[index].url)
-        .subscribe(
-          data =>{
-            var typesPokemon : string[] = this.typesPokemon(data.types);
-            list.push(new Pokemon(data.id, data.name, data.sprites.front_default, typesPokemon));
-          }
-        );
-    }
+  generatePokemon(list : Pokemon[] , data : string){
+
+   this.pokeService.getPokemonByURL(data)
+    .subscribe(
+      data =>{
+        var pokemon = new Pokemon (data.id, data.name, data.sprites.front_default, this.typesPokemon(data.types));
+        list.push(pokemon);
+      }
+    )
+
   }
+
 
   typesPokemon(data : any) : string[]{
     var types : string[] = [data.length];

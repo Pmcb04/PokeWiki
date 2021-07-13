@@ -1,44 +1,52 @@
+import { Stats } from "./stats";
+import { Move } from "./move";
+
 export class Pokemon{
 
     public constructor(
-      private id : number,
-      private name : string,
-      private front_sprite : string,
-      private types : string[],
-      private stats? : Stats
+      private id? : number,
+      private name? : string,
+      private front_sprite? : string,
+      private types? : string[],
+      private height? : number,
+      private weight? : number,
+      private stats? : Stats,
+      private moves? : Move[]
     ){};
 
     getID() : number{
-      return this.id
+      return this.id as number
     }
 
     getName() : string{
-      return this.name
+      return this.name as string
     }
 
     getFrontSprite() : string{
-      return this.front_sprite
+      return this.front_sprite as string
+    }
+
+    getHeight() : number{
+      return this.height as number;
+    }
+
+    getWeight() : number{
+      return this.weight as number;
     }
 
     getTypes() : string[]{
-      return this.types
+      return this.types as string[]
     }
 
     getStats() : Stats{
       return this.stats as Stats;
     }
+
+    getMoves() : Move[]{
+      return this.moves as Move[]
+    }
 }
 
-export class Stats{
-  hp : Stat = {base_stat : 0, effort : 0};
-  speed : Stat = {base_stat : 0, effort : 0};
-  attack : Stat = {base_stat : 0, effort : 0};
-  defense : Stat = {base_stat : 0, effort : 0};
-  special_attack : Stat = {base_stat : 0, effort : 0};
-  special_defense : Stat = {base_stat : 0, effort : 0};
-}
 
-interface Stat{
-  effort : number;
-  base_stat : number;
-}
+
+
