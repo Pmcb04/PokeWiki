@@ -6,8 +6,9 @@ export class Pokemon{
     public constructor(
       private id? : number,
       private name? : string,
-      private front_sprite? : string,
       private types? : string[],
+      private front_sprite? : string,
+      private front_shiny? : string,
       private height? : number,
       private weight? : number,
       private stats? : Stats,
@@ -22,8 +23,16 @@ export class Pokemon{
       return this.name as string
     }
 
+    getTypes() : string[]{
+      return this.types as string[]
+    }
+
     getFrontSprite() : string{
       return this.front_sprite as string
+    }
+
+    getFrontShiny() : string{
+      return this.front_shiny as string
     }
 
     getHeight() : number{
@@ -32,10 +41,6 @@ export class Pokemon{
 
     getWeight() : number{
       return this.weight as number;
-    }
-
-    getTypes() : string[]{
-      return this.types as string[]
     }
 
     getStats() : Stats{

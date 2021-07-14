@@ -13,6 +13,19 @@ import { PokemonService } from 'src/app/services/pokemon-service.service';
 export class PokeViewComponent implements OnInit {
 
   pokemon : Pokemon = new Pokemon();
+  star : string = "star_black";
+  sprit : string = "";
+
+  change_star(){
+    if(this.star === "star_yellow"){
+      this.star = "star_black";
+      this.sprit = this.pokemon.getFrontSprite();
+    }
+    else{
+      this.star = "star_yellow";
+      this.sprit = this.pokemon.getFrontShiny();
+    }
+  }
 
   constructor(private route: ActivatedRoute, private pokeService : PokemonService) { }
 
@@ -23,7 +36,8 @@ export class PokeViewComponent implements OnInit {
           var typesPokemon : string[] = this.typesPokemon(data.types);
           var statsPokemon : Stats = this.statsPokemon(data.stats);
           var movesPokemon : Move[] = this.movesPokemon(data.moves);
-          this.pokemon = new Pokemon(data.id, data.name, data.sprites.front_default, typesPokemon, data.height, data.weight, statsPokemon, movesPokemon);
+          this.pokemon = new Pokemon(data.id, data.name, typesPokemon, data.sprites.front_default, data.sprites.front_shiny, data.height, data.weight, statsPokemon, movesPokemon);
+          this.sprit = this.pokemon.getFrontSprite();
         }
       )
     });

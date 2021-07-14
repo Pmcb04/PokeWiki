@@ -59,7 +59,7 @@ export class PokeListComponent implements OnInit{
    this.pokeService.getPokemonByURL(data)
     .subscribe(
       data =>{
-        var pokemon = new Pokemon (data.id, data.name, data.sprites.front_default, this.typesPokemon(data.types));
+        var pokemon = new Pokemon (data.id, data.name, this.typesPokemon(data.types), data.sprites.front_default, );
         list.push(pokemon);
         list.sort((a,b) => (a.getID() > b.getID()) ? 1 : ((b.getID() > a.getID()) ? -1 : 0));
       }

@@ -1,8 +1,8 @@
 <div class="poke-view">
 
   <div class="pokemon">
-    <img class="star" src="../../../assets/star_yellow.svg" alt="star image">
-    <img class="poke-img" src="{{pokemon.getFrontSprite()}}" alt="{{pokemon.getName()}} image">
+    <img class="star" src="../../../assets/{{star}}.svg" alt="star image" (click)="change_star()">
+    <img class="poke-img" src="{{sprit}}" alt="{{pokemon.getName()}} image">
     <div class="info">
       <p id="id">#{{pokemon.getID()}}</p>
       <p id="name">{{pokemon.getName()}}</p>
