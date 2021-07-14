@@ -15,6 +15,7 @@ interface generation{
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
   first_gen            : generation = {offset : 0,   limit : 151};
   second_gen           : generation = {offset : 151, limit : 100};
   third_gen            : generation = {offset : 251, limit : 135};
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
   seventh_gen          : generation = {offset : 721, limit : 88};
   eighth_gen           : generation = {offset : 809, limit : 83};
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

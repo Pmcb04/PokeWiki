@@ -30,7 +30,7 @@ const routes: Routes = [
     PageNotFoundComponent,
     HeaderComponent,
     PokeListComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

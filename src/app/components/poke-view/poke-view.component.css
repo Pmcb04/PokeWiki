@@ -29,7 +29,12 @@
   align-items: center;
 }
 
-.pokemon img{
+.pokemon .star{
+  width: 3%;
+  margin-left: 40px;
+}
+
+.pokemon .poke-img{
   float: left;
   height: auto;
   width: 30%;

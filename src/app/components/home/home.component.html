@@ -1,11 +1,147 @@
-<div class="generaciones">
-  <a class="gen-link" [routerLink]="['/list']" [queryParams]="{offset : first_gen.offset, limit : first_gen.limit}"> 1ª Generación</a>
-  <a class="gen-link" [routerLink]="['/list']" [queryParams]="{offset : second_gen.offset, limit : second_gen.limit}"> 2ª Generación</a>
-  <a class="gen-link" [routerLink]="['/list']" [queryParams]="{offset : third_gen.offset, limit : third_gen.limit}"> 3ª Generación</a>
-  <a class="gen-link" [routerLink]="['/list']" [queryParams]="{offset : forth_gen.offset, limit : forth_gen.limit}"> 4ª Generación</a>
-  <a class="gen-link" [routerLink]="['/list']" [queryParams]="{offset : fifth_gen.offset, limit : fifth_gen.limit}"> 5ª Generación</a>
-  <a class="gen-link" [routerLink]="['/list']" [queryParams]="{offset : sixth_gen.offset, limit : sixth_gen.limit}"> 6ª Generación</a>
-  <a class="gen-link" [routerLink]="['/list']" [queryParams]="{offset : seventh_gen.offset, limit : seventh_gen.limit}">7ª Generación</a>
-  <a class="gen-link" [routerLink]="['/list']" [queryParams]="{offset : eighth_gen.offset, limit : eighth_gen.limit}"> 8ª Generación</a>
-</div>
+<div class="busqueda">
 
+  <div class="generaciones">
+    <h2 class="title">Generaciones</h2>
+    <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : first_gen.offset, limit : first_gen.limit}">1ª Generación</a>
+    <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : second_gen.offset, limit : second_gen.limit}">2ª Generación</a>
+    <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : third_gen.offset, limit : third_gen.limit}">3ª Generación</a>
+    <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : forth_gen.offset, limit : forth_gen.limit}">4ª Generación</a>
+    <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : fifth_gen.offset, limit : fifth_gen.limit}">5ª Generación</a>
+    <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : sixth_gen.offset, limit : sixth_gen.limit}">6ª Generación</a>
+    <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : seventh_gen.offset, limit : seventh_gen.limit}">7ª Generación</a>
+    <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : eighth_gen.offset, limit : eighth_gen.limit}"> 8ª Generación</a>
+  </div>
+
+  <div class="tipos">
+    <h2 class="title">Tipos</h2>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'bug'}">
+      <div class="tipo">
+        <img src="../../../assets/types/bug.svg" alt="bug type icon">
+        <p>Bug</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'dark'}">
+      <div class="tipo">
+        <img src="../../../assets/types/dark.svg" alt="dark type icon">
+        <p>Dark</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'dragon'}">
+      <div class="tipo">
+        <img src="../../../assets/types/dragon.svg" alt="dragon type icon">
+        <p>Dragon</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'electric'}">
+      <div class="tipo">
+        <img src="../../../assets/types/electric.svg" alt="electric type icon">
+        <p>Electric</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'fairy'}">
+      <div class="tipo">
+        <img src="../../../assets/types/fairy.svg" alt="fairy type icon">
+        <p>Fairy</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'fighting'}">
+      <div class="tipo">
+        <img src="../../../assets/types/fighting.svg" alt="fighting type icon">
+        <p>Fighting</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'fire'}">
+      <div class="tipo">
+        <img src="../../../assets/types/fire.svg" alt="fire type icon">
+        <p>Fire</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'flying'}">
+      <div class="tipo">
+        <img src="../../../assets/types/flying.svg" alt="flying type icon">
+        <p>Flying</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'ghost'}">
+      <div class="tipo">
+        <img src="../../../assets/types/ghost.svg" alt="ghost type icon">
+        <p>Ghost</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'grass'}">
+      <div class="tipo">
+        <img src="../../../assets/types/grass.svg" alt="grass type icon">
+        <p>Grass</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'ground'}">
+      <div class="tipo">
+        <img src="../../../assets/types/ground.svg" alt="ground type icon">
+        <p>Ground</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'ice'}">
+      <div class="tipo">
+        <img src="../../../assets/types/ice.svg" alt="ice type icon">
+        <p>Ice</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'normal'}">
+      <div class="tipo">
+        <img src="../../../assets/types/normal.svg" alt="normal type icon">
+        <p>Normal</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'poison'}">
+      <div class="tipo">
+        <img src="../../../assets/types/poison.svg" alt="poison type icon">
+        <p>Poison</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'psychic'}">
+      <div class="tipo">
+        <img src="../../../assets/types/psychic.svg" alt="psychic type icon">
+        <p>Psychic</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'rock'}">
+      <div class="tipo">
+        <img src="../../../assets/types/rock.svg" alt="rock type icon">
+        <p>Rock</p>
+      </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'steel'}">
+    <div class="tipo">
+      <img src="../../../assets/types/steel.svg" alt="steel type icon">
+      <p>Steel</p>
+    </div>
+    </a>
+
+    <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'water'}">
+      <div class="tipo">
+        <img src="../../../assets/types/water.svg" alt="water type icon">
+        <p>Water</p>
+      </div>
+    </a>
+
+  </div>
+
+
+</div>
