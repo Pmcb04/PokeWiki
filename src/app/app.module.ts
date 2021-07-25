@@ -13,10 +13,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HeaderComponent } from './components/header/header.component';
 import { PokeListComponent } from './components/poke-list/poke-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PokeTableComponent } from './components/poke-table/poke-table.component';
 
 const routes: Routes = [
   { path : 'pokemon' , component : PokeViewComponent},
   { path : 'list' , component : PokeListComponent},
+  { path : 'table' , component : PokeTableComponent},
   { path : '', component : HomeComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -31,6 +34,8 @@ const routes: Routes = [
     HeaderComponent,
     PokeListComponent,
     HomeComponent,
+    FooterComponent,
+    PokeTableComponent,
   ],
   imports: [
     BrowserModule,

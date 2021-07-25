@@ -18,8 +18,8 @@ export class PokemonService {
     return this.http.get<any>(`${this.url}/pokedex/${pokedex}`)
   }
 
-  // Obtiene todos los pokemon por la pokedex que le pasamos por parametro
-  getAllPokemonByType(type : string) {
+  // Obtiene toda la informacion sobre el tipo pasado por parametro
+  getType(type : string) {
     return this.http.get<any>(`${this.url}/type/${type}`)
   }
 
@@ -46,6 +46,11 @@ export class PokemonService {
   // Obtiene un movimiento por nombre pasado por parametro
   getMoveByName(name : string){
     return this.http.get<any>(`${this.url}/move/${name}`);
+  }
+
+  // obtiene la cadena de evolucion por número de id pasado por parametro
+  getEvolutionChain(id : number){
+    return this.http.get<any>(`${this.url}/evolution-chain/${id}`)
   }
 
 }

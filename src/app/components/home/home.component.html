@@ -1,6 +1,6 @@
 <div class="busqueda">
 
-  <div class="generaciones">
+  <div class="generaciones box">
     <h2 class="title">Generaciones</h2>
     <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : first_gen.offset, limit : first_gen.limit}">1ª Generación</a>
     <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : second_gen.offset, limit : second_gen.limit}">2ª Generación</a>
@@ -12,7 +12,7 @@
     <a class="gen-link link" [routerLink]="['/list']" [queryParams]="{offset : eighth_gen.offset, limit : eighth_gen.limit}"> 8ª Generación</a>
   </div>
 
-  <div class="tipos">
+  <div class="tipos box">
     <h2 class="title">Tipos</h2>
 
     <a class="type-link link" [routerLink]="['/list']" [queryParams]="{type : 'bug'}">

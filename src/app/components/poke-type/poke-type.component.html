@@ -1,1 +1,3 @@
-<img class="type-img" src="../../assets/types/{{name}}.svg" alt="type {{name}} icon">
+<a class="gen-link link" [routerLink]="['/table']" [queryParams]="{type : name}">
+  <img class="type-img" src="../../assets/types/{{name}}.svg" alt="type {{name}} icon">
+</a>

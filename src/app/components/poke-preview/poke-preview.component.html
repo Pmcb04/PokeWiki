@@ -1,7 +1,7 @@
 <a class="link" [routerLink]="['/pokemon']" [queryParams]="{ name: pokemon.getName()}">
   <div class="border pokemon">
 
-    <img src="{{pokemon.getFrontSprite()}}" alt="{{pokemon.getName()}} image">
+    <img src="{{pokemon.getFrontSpriteMale()}}" alt="{{pokemon.getName()}} image">
     <p id="name">{{pokemon.getName()| titlecase}}</p>
     <p id="id">#{{pokemon.getID()}}</p>
 

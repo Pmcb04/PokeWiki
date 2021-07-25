@@ -1,8 +1,12 @@
 <div class="poke-view">
 
-  <div class="pokemon">
+  <div class="buttoms_change">
     <img class="star" src="../../../assets/{{star}}.svg" alt="star image" (click)="change_star()">
-    <img class="poke-img" src="{{sprit}}" alt="{{pokemon.getName()}} image">
+    <img class="genre" src="../../../assets/{{genre}}.svg" alt="genre {{genre}} image" (click)="change_genre()">
+  </div>
+
+  <div class="pokemon">
+    <img class="poke-img" src="{{sprit}}" alt="{{pokemon.getName()}} image" (click)="change_position()">
     <div class="info">
       <p id="id">#{{pokemon.getID()}}</p>
       <p id="name">{{pokemon.getName()}}</p>
@@ -62,7 +66,6 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">Name</th>
-            <th scope="col">Level</th>
             <th scope="col">Power</th>
             <th scope="col">PP</th>
             <th scope="col">Accuracy</th>
@@ -73,7 +76,6 @@
         <tbody>
           <tr *ngFor="let move of pokemon.getMoves()">
             <th scope="row">{{move.getName().replace("-", " ")| titlecase }}</th>
-            <td>{{move.getLevelLearningAt()}}</td>
             <td>{{move.getPower()}}</td>
             <td>{{move.getPp()}}</td>
             <td>{{move.getAccuracy()}}</td>

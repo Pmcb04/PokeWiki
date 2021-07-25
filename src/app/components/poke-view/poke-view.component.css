@@ -3,7 +3,7 @@
   margin: 0;
 }
 
-.poke-view .pokemon , .poke-view .stats, .poke-view .poke-body{
+.poke-view .buttoms_change, .poke-view .pokemon , .poke-view .stats, .poke-view .poke-body{
   float: left;
 }
 
@@ -20,8 +20,32 @@
   height: 50%;
 }
 
+.buttoms_change{
+  width: 3%;
+  height: 250px;
+  background-color: beige;
+
+  display: flex;
+
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+
+.buttoms_change img{
+
+  width: 32px;
+  height: 64px;
+  background-color: palegreen;
+  padding: 8px;
+
+  border-radius: 0 10px 10px 0;
+
+}
+
 .pokemon{
-  width: 50%;
+  width: 47%;
   height: 250px;
   background-color: beige;
 
@@ -29,10 +53,6 @@
   align-items: center;
 }
 
-.pokemon .star{
-  width: 3%;
-  margin-left: 40px;
-}
 
 .pokemon .poke-img{
   float: left;
