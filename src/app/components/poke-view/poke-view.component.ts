@@ -1,5 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router'
+import { EvolutionChain, PokemonChain } from 'src/app/model/evolution-chain';
 import { Move } from 'src/app/model/move';
 import { Pokemon } from 'src/app/model/pokemon';
 import { Sprites } from 'src/app/model/sprites';
@@ -14,8 +16,9 @@ import { PokemonService } from 'src/app/services/pokemon-service.service';
 export class PokeViewComponent implements OnInit {
 
   pokemon : Pokemon = new Pokemon();
+  evolutionChain : EvolutionChain = new EvolutionChain();
   star : string = "star_black";
-  genre : string = "man"
+  genre : string = "man";
   isShiny : boolean = false;
   isFemale : boolean = false;
   isBack : boolean = false;
@@ -41,9 +44,11 @@ export class PokeViewComponent implements OnInit {
     if(this.sprit === null) this.sprit = this.pokemon.getNewSprit(this.isShiny, !this.isFemale, this.isBack);
   }
 
-  constructor(private route: ActivatedRoute, private pokeService : PokemonService) { }
+  constructor(private route: ActivatedRoute, private pokeService : PokemonService) {
+  }
 
   ngOnInit(): void {
+
     this.route.queryParams.subscribe (params =>{
       this.pokeService.getPokemonByName(params['name']).subscribe(
         data =>{
@@ -51,8 +56,18 @@ export class PokeViewComponent implements OnInit {
           var statsPokemon : Stats = this.statsPokemon(data.stats);
           var movesPokemon : Move[] = this.movesPokemon(data.moves);
           var spritesPokemon : Sprites = this.spritesPokemon(data.sprites);
+          this.getEvolutionChain(data.species.url);
+
+
           this.pokemon = new Pokemon(data.id, data.name, typesPokemon, spritesPokemon, data.height, data.weight, statsPokemon, movesPokemon);
+
           this.sprit = this.pokemon.getFrontSpriteMale();
+          this.isShiny = false;
+          this.isFemale = false;
+          this.isBack = false;
+
+          this.star = "star_black";
+          this.genre = "man"
         }
       )
     });
@@ -109,6 +124,7 @@ export class PokeViewComponent implements OnInit {
          data =>{
            moves.push(new Move(
              data.name,
+             data.type.name,
              data.accuracy,
              data.effect_chance,
              data.pp,
@@ -134,6 +150,39 @@ export class PokeViewComponent implements OnInit {
       data.back_female,
       data.back_shiny_female
     );
+  }
+
+  getEvolutionChain(data : string){
+
+    var evolutionChain : EvolutionChain = new EvolutionChain();
+    var index : number = 0;
+
+    this.pokeService.getPokemonSpeciesByURL(data).subscribe(
+      data =>{
+         this.pokeService.getEvolutionChainByURL(data.evolution_chain.url).subscribe(
+            data => {
+              this.evolutionPokemon(data.chain, evolutionChain, index);
+              this.evolutionChain = evolutionChain;
+            }
+         )
+      }
+    )
+
+  }
+
+  evolutionPokemon(data: any, evolutionChain : EvolutionChain, index : number) {
+
+    if(data != null){
+      this.pokeService.getPokemonByName(data.species.name).subscribe(
+        data =>{
+          evolutionChain.add(new PokemonChain(data.name, data.sprites.front_default));
+        }
+      )
+      index = index + 1;
+      for (let i = 0; i < data.evolves_to.length; i++)
+        this.evolutionPokemon(data.evolves_to[i], evolutionChain, index);
+    }
+
   }
 
 

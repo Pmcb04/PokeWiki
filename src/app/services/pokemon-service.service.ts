@@ -53,4 +53,14 @@ export class PokemonService {
     return this.http.get<any>(`${this.url}/evolution-chain/${id}`)
   }
 
+  // obtiene la cadena de evolucion por número de id pasado por parametro
+  getEvolutionChainByURL(url : string){
+    return this.http.get<any>(url)
+  }
+
+  // obtiene la cadena de evolucion por número de id pasado por parametro
+  getPokemonSpeciesByURL(url : string){
+    return this.http.get<any>(url);
+  }
+
 }

@@ -3,6 +3,7 @@ export class Move{
 
   public constructor(
     private name : string,
+    private type : string,
     private accuracy : number = 0,
     private effect_chance : number = 0,
     private pp : number = 0,
@@ -13,6 +14,10 @@ export class Move{
 
   getName(){
     return this.name
+  }
+
+  getType(){
+    return this.type;
   }
 
   getAccuracy(){

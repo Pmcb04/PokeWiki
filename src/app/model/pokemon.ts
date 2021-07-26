@@ -1,6 +1,6 @@
 import { Stats } from "./stats";
 import { Move } from "./move";
-import { Sprites } from "./sprites";
+import { Sprites } from "./sprites"
 
 export class Pokemon{
 
@@ -104,7 +104,7 @@ export class Pokemon{
     }
 
     getMoves() : Move[]{
-      return this.moves as Move[]
+      return this.moves as Move[];
     }
 }
 

@@ -20,7 +20,6 @@
   --color-eff-immune: #d6d6d6;
   --color-eff-noteffective: #fdd0d0;
   --color-eff-veryeffective:#ccfbcc;
-  --field-width: 35px;
 }
 
 td:empty::before {content: "0"}

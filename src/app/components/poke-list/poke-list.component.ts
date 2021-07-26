@@ -19,45 +19,7 @@ export class PokeListComponent implements OnInit{
     this.route.queryParams.subscribe (params =>{
       if(params['type']) this.getPokemonByType(this.pokeList, params['type']);
       else this.getListPokemon(this.pokeList, params['offset'], params['limit']);
-
-      this.getEvolutionChains()
-
     });
-
-
-  }
-  getEvolutionChains() {
-
-    for (let index = 1; index < 79; index++) { // TODO para el numero limite de cadenas evolutivas hacer contador y llevar la cuenta de los pokemon hasta params  ['limit']
-      this.pokeService.getEvolutionChain(index)
-      .subscribe(
-        data => {
-          var index = 0;
-          var names : string[] = [];
-
-          this.getPokemonEvolution(data.chain, names, index); // TODO hay que generar las cadenas y para cada nombre de la cadena hay que generar el pokemon y      pasarle la cadena para tenerla generada
-
-
-          // console.log("\n---------------------------------------------");
-          // names.forEach(element => {
-          //   console.log("->" , element);
-          // });
-          // console.log("---------------------------------------------\n");
-
-        }
-      );
-    }
-
-  }
-  getPokemonEvolution(data: any, names: string[], index : number) {
-
-    if(data != null){
-      names[index] = data.species.name;
-      index = index + 1;
-      for (let i = 0; i < data.evolves_to.length; i++)
-        this.getPokemonEvolution(data.evolves_to[i], names, index);
-    }
-
   }
 
   ngOnInit(){}

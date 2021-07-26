@@ -1,8 +1,8 @@
 <div class="poke-view">
 
-  <div class="buttoms_change">
-    <img class="star" src="../../../assets/{{star}}.svg" alt="star image" (click)="change_star()">
-    <img class="genre" src="../../../assets/{{genre}}.svg" alt="genre {{genre}} image" (click)="change_genre()">
+  <div class="buttoms_change" >
+    <img class="star {{pokemon.getTypes()[0]}}" src="../../../assets/{{star}}.svg" alt="star image" (click)="change_star()">
+    <img class="genre {{pokemon.getTypes()[0]}}" src="../../../assets/{{genre}}.svg" alt="genre {{genre}} image" (click)="change_genre()">
   </div>
 
   <div class="pokemon">
@@ -59,12 +59,27 @@
   </div>
 
   <div class="poke-body">
+
+    <div class="poke-evolution {{pokemon.getTypes()[0]}}">
+      <h2 class="title">Evolution</h2>
+      <div class="evolution-chain">
+        <div class="poke-evo" *ngFor="let pokemon of evolutionChain.getPokemon()">
+          <a class="link" [routerLink]="['/pokemon']" [queryParams]="{ name: pokemon.getName()}">
+            <img class="poke-img-evo" src="{{pokemon.getSprit()}}" alt="{{pokemon.getName()}} sprit">
+            <p class="poke-name-evo">{{pokemon.getName()}}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
     <div class="poke-moves">
-      <h2>Movements</h2>
+      <h2 class="title">Movements</h2>
 
       <table class="table table-borderless">
         <thead class="table-dark">
           <tr>
+            <th scope="col">Type</th>
             <th scope="col">Name</th>
             <th scope="col">Power</th>
             <th scope="col">PP</th>
@@ -75,6 +90,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let move of pokemon.getMoves()">
+            <td><poke-type  class="types" [name]="move.getType()" ></poke-type></td>
             <th scope="row">{{move.getName().replace("-", " ")| titlecase }}</th>
             <td>{{move.getPower()}}</td>
             <td>{{move.getPp()}}</td>
