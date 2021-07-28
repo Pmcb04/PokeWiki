@@ -3,17 +3,53 @@
   margin-top: 50px;
 }
 
+.busqueda .mini-boxs{
+  float: left;
+}
+
 .box{
   float: left;
   height: 100%;
   margin: 10px;
 
-  height: 650px;
+  padding-bottom: 20px;
 
   border: 1px;
   border-color: black;
   border-style: solid;
 
+}
+
+.mini-boxs{
+  width: 75%;
+  height: 100%;
+  margin: 10px;
+}
+
+.mini-box{
+  float: left;
+  background-color: black;
+  color: white;
+
+  height: 150px;
+  width: 30%;
+
+  margin-right: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.mini-box * {
+  margin: 5px;
+  padding: 2px;
+}
+
+.mini-box img{
+  width: 32px;
+  height: 32px;
 }
 
 .title {
@@ -31,7 +67,7 @@
 }
 
 .tipos{
-  width: 40%;
+  width: 75%;
   text-align: center;
 }
 
@@ -53,6 +89,12 @@
   height: 64px;
 }
 
+.link:hover{
+  color: black;
+  font-weight: bold;
+  background-color: aqua;
+}
+
 .gen-link{
 
   display: block;
@@ -65,13 +107,6 @@
 
 }
 
-.link:hover{
-  color: black;
-  font-weight: bold;
-  background-color: aqua;
-}
-
-
 .type-link{
   display: inline-block;
   padding: 20px;
@@ -79,7 +114,6 @@
   color: black;
 
   width: 180px;
-
 }
 
 .type-link .tipo p{

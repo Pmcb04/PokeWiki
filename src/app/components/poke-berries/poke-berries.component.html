@@ -1,0 +1,20 @@
+
+<div class="container">
+  <table class="table table-borderless">
+    <thead  class="table-dark">
+      <tr>
+        <th scope="col">Sprit</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let berry of berriesList">
+        <td><img src="{{berry.getSprit()}}" alt="{{berry.getName()}} image"></td>
+        <td>{{berry.getName().replace("-", " ") | titlecase}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<a class="navegation previous" (click)="previousPage()" >Previous</a>
+<a class="navegation next" (click)="nextPage()">Next</a>

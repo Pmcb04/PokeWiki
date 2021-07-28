@@ -15,11 +15,15 @@ import { PokeListComponent } from './components/poke-list/poke-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PokeTableComponent } from './components/poke-table/poke-table.component';
+import { PokeItemsComponent } from './components/poke-items/poke-items.component';
+import { PokeBerriesComponent } from './components/poke-berries/poke-berries.component';
 
 const routes: Routes = [
   { path : 'pokemon' , component : PokeViewComponent},
   { path : 'list' , component : PokeListComponent},
   { path : 'table' , component : PokeTableComponent},
+  { path : 'items' , component : PokeItemsComponent},
+  { path : 'berries' , component : PokeBerriesComponent},
   { path : '', component : HomeComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -36,6 +40,8 @@ const routes: Routes = [
     HomeComponent,
     FooterComponent,
     PokeTableComponent,
+    PokeItemsComponent,
+    PokeBerriesComponent,
   ],
   imports: [
     BrowserModule,

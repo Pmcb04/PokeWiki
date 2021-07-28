@@ -25,6 +25,11 @@ export class HomeComponent implements OnInit {
   seventh_gen          : generation = {offset : 721, limit : 88};
   eighth_gen           : generation = {offset : 809, limit : 83};
 
+  types : string[] =  ["bug", "dark", "dragon", "electric", "fairy",
+  "fighting", "fire", "flying", "ghost", "grass",
+  "ground", "ice", "normal", "poison", "psychic",
+  "rock", "steel", "water"] 
+
   constructor() {}
 
   ngOnInit(): void {
