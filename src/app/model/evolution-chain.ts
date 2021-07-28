@@ -1,8 +1,13 @@
 export class PokemonChain{
   constructor(
+    private id : number,
     private name : string,
     private sprit : string
   ){}
+
+  getID() : number{
+    return this.id;
+  }
 
   getName() : string{
     return this.name;
@@ -34,6 +39,10 @@ export class EvolutionChain {
 
   getPokemon() : PokemonChain[]{
     return this.chain;
+  }
+
+  getPokemonOrderByID() : PokemonChain[]{
+    return this.chain.sort((a,b) => (a.getID() > b.getID()) ? 1 : ((b.getID() > a.getID()) ? -1 : 0));
   }
 
 }

@@ -44,8 +44,7 @@ export class PokeViewComponent implements OnInit {
     if(this.sprit === null) this.sprit = this.pokemon.getNewSprit(this.isShiny, !this.isFemale, this.isBack);
   }
 
-  constructor(private route: ActivatedRoute, private pokeService : PokemonService) {
-  }
+  constructor(private route: ActivatedRoute, private pokeService : PokemonService) {}
 
   ngOnInit(): void {
 
@@ -175,7 +174,7 @@ export class PokeViewComponent implements OnInit {
     if(data != null){
       this.pokeService.getPokemonByName(data.species.name).subscribe(
         data =>{
-          evolutionChain.add(new PokemonChain(data.name, data.sprites.front_default));
+          evolutionChain.add(new PokemonChain(data.id, data.name, data.sprites.front_default));
         }
       )
       index = index + 1;

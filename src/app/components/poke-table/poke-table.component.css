@@ -22,7 +22,11 @@
   --color-eff-veryeffective:#ccfbcc;
 }
 
-td:empty::before {content: "0"}
+td:empty::before {content: "1"}
+
+table {
+  width: 100%;
+}
 
 .container{
   margin-top: 50px;
@@ -31,12 +35,10 @@ td:empty::before {content: "0"}
 .type{
   color: white;
   text-align: center;
+  border: 0;
 }
 
 td{
-  border: 1px;
-  border-style: solid;
-  border-color: black;
   text-align: center;
 }
 
@@ -110,4 +112,20 @@ td{
 
 .water{
   background-color: var(--color-water);
+}
+
+.eff{
+  background-color: white;
+}
+
+.eff0{
+  background-color: var(--color-eff-immune);
+}
+
+.eff05{
+  background-color: var(--color-eff-noteffective);
+}
+
+.eff2{
+  background-color: var(--color-eff-veryeffective);
 }

@@ -63,10 +63,11 @@
     <div class="poke-evolution {{pokemon.getTypes()[0]}}">
       <h2 class="title">Evolution</h2>
       <div class="evolution-chain">
-        <div class="poke-evo" *ngFor="let pokemon of evolutionChain.getPokemon()">
+        <div class="poke-evo" *ngFor="let pokemon of evolutionChain.getPokemonOrderByID()">
           <a class="link" [routerLink]="['/pokemon']" [queryParams]="{ name: pokemon.getName()}">
             <img class="poke-img-evo" src="{{pokemon.getSprit()}}" alt="{{pokemon.getName()}} sprit">
             <p class="poke-name-evo">{{pokemon.getName()}}</p>
+            <p class="poke-id-evo">#{{pokemon.getID()}}</p>
           </a>
         </div>
       </div>

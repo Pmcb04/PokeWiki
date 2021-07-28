@@ -1,3 +1,4 @@
+import { TypeScriptEmitter } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon-service.service';
 
@@ -8,59 +9,65 @@ import { PokemonService } from 'src/app/services/pokemon-service.service';
 })
 export class PokeTableComponent implements OnInit {
 
+  types : string[] =  ["bug", "dark", "dragon", "electric", "fairy",
+                       "fighting", "fire", "flying", "ghost", "grass",
+                       "ground", "ice", "normal", "poison", "psychic",
+                       "rock", "steel", "water"]
+
+  damageMatrix : Map<string, Map<string,string>> = new Map<string, Map<string, string>>();
+
   constructor(private pokeService : PokemonService) {
-    this.getType("bug");
+
+    // Inicializamos cada map con su correspondiente tipo y su mapa
+    this.types.forEach(element => {
+      this.damageMatrix.set(element, new Map<string, string>());
+    });
+
+    // Rellenamos cada mapa de cada tipo con todos los tipos disponibles
+    this.damageMatrix.forEach(element => {
+      this.types.forEach(type => {
+        element.set(type, ""); // rellenamos a 1 por ser el elemento neutro
+      });
+    });
+
+    // Por ultimo, calculamos el daño de cada tipo de movimiento
+    this.types.forEach(element => {
+      this.getDamageType(element);
+    });
+
+    console.log("damageMAtrix -> ",   this.damageMatrix);
   }
 
   ngOnInit(): void {
 
   }
 
-  getType(type : string){
+
+  // from lista de tipos a los que hacen daño a el tipo calculado
+  // to lista de tipos a los que hace daño a el tipo calculado
+  getDamageType(type : string){
+
     this.pokeService.getType(type).subscribe(
       data =>{
 
-          console.log("double_damage_from -> ");
-          console.log("------------------------");
-
-
           for (let index = 0; index < data.damage_relations.double_damage_from.length; index++)
-            console.log(data.damage_relations.double_damage_from[index].name);
-
-          console.log("\n");
-          console.log("double_damage_to -> ");
-          console.log("------------------------");
-
-          for (let index = 0; index < data.damage_relations.double_damage_to.length; index++)
-            console.log( data.damage_relations.double_damage_to[index].name);
-
-          console.log("\n");
-          console.log("half_damage_from -> ");
-          console.log("------------------------");
+            this.damageMatrix.get(type)!.set(data.damage_relations.double_damage_from[index].name, "2");
 
           for (let index = 0; index < data.damage_relations.half_damage_from.length; index++)
-            console.log( data.damage_relations.half_damage_from[index].name);
-
-          console.log("\n");
-          console.log("half_damage_to -> ");
-          console.log("------------------------");
-
-          for (let index = 0; index < data.damage_relations.half_damage_to.length; index++)
-            console.log( data.damage_relations.half_damage_to[index].name);
-
-          console.log("\n");
-          console.log("no_damage_from -> ");
-          console.log("------------------------");
+            this.damageMatrix.get(type)!.set(data.damage_relations.half_damage_from[index].name, "0.5");
 
           for (let index = 0; index < data.damage_relations.no_damage_from.length; index++)
-            console.log( data.damage_relations.no_damage_from[index].name);
+            this.damageMatrix.get(type)!.set( data.damage_relations.no_damage_from[index].name, "0");
 
-          console.log("\n");
-          console.log("no_damage_to -> ");
-          console.log("------------------------");
+          // for (let index = 0; index < data.damage_relations.double_damage_to.length; index++)
+          //   this.damageMatrix.get(data.damage_relations.double_damage_to[index].name)!.set(type, "x2");
 
-          for (let index = 0; index < data.damage_relations.no_damage_to.length; index++)
-            console.log( data.damage_relations.no_damage_to[index].name);
+          // for (let index = 0; index < data.damage_relations.half_damage_to.length; index++)
+          //   this.damageMatrix.get(data.damage_relations.half_damage_to[index].name)!.set(type, "1/2");
+
+          // for (let index = 0; index < data.damage_relations.no_damage_to.length; index++)
+          //   this.damageMatrix.get(data.damage_relations.no_damage_to[index].name)!.set(type, "0");
+
 
       }
     )

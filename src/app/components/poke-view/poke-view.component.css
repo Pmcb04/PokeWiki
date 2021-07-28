@@ -139,18 +139,17 @@
 
 .title{
   font-weight: bold;
-  padding: 10px;
+  padding: 20px;
   margin: 0;
 }
 
 .poke-evolution{
   width: 100%;
-  background-color: indianred;
 
   display: block;
   text-align: center;
 
-  padding: 20px;
+  padding: 40px;
 }
 
 .evolution-chain{
@@ -161,6 +160,10 @@
 
 .poke-evo{
   width: 20%;
+}
+
+.poke-evo *{
+  margin: 0;
 }
 
 .poke-evo a{
@@ -175,6 +178,12 @@
 .poke-evo .poke-name-evo{
   font-size: large;
   font-weight: bold;
+  font-variant: small-caps;
+}
+
+.poke-evo .poke-id-evo {
+  font-size: small;
+  font-style: italic;
   font-variant: small-caps;
 }
 
@@ -259,13 +268,13 @@ tr:hover{
 }
 
 
-
 .bug{
   background-color: var(--color-bug);
 }
 
 .dark{
   background-color: var(--color-dark);
+
 }
 
 .dragon{
@@ -330,4 +339,8 @@ tr:hover{
 
 .water{
   background-color: var(--color-water);
+}
+
+.dark *, .dragon *, .fighting *, .ghost *, .poison *, .psychic *, .rock *, .water *{
+  color: white;
 }
