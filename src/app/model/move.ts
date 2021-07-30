@@ -2,46 +2,46 @@
 export class Move{
 
   public constructor(
-    private name : string,
-    private type : string,
-    private accuracy : number = 0,
-    private effect_chance : number = 0,
-    private pp : number = 0,
-    private priority : number = 0,
-    private power : number = 0,
-    private level_learned_at : number = 0
+    private _name : string,
+    private _type : string,
+    private _accuracy : number = 0,
+    private _effect_chance : number = 0,
+    private _pp : number = 0,
+    private _priority : number = 0,
+    private _power : number = 0,
+    private _level_learned_at : number = 0
   ){};
 
-  getName(){
-    return this.name
+  get name() : string{
+    return this._name
   }
 
-  getType(){
-    return this.type;
+  get type() : string{
+    return this._type;
   }
 
-  getAccuracy(){
-    return this.accuracy
+  get accuracy() : number{
+    return this._accuracy
   }
 
-  getEffectChance(){
-    return this.effect_chance
+  get effectChance() : number{
+    return this._effect_chance
   }
 
-  getPp(){
-    return this.pp
+  get pp() : number{
+    return this._pp
   }
 
-  getPriority(){
-    return this.priority
+  get priority() : number{
+    return this._priority
   }
 
-  getPower(){
-    return this.power
+  get power() : number{
+    return this._power
   }
 
-  getLevelLearningAt(){
-    return this.level_learned_at
+  get levelLearningAt() : number{
+    return this._level_learned_at
   }
 
 }

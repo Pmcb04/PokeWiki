@@ -1,25 +1,25 @@
 <div class="poke-view">
 
   <div class="buttoms_change" >
-    <img class="star {{pokemon.getTypes()[0]}}" src="../../../assets/{{star}}.svg" alt="star image" (click)="change_star()">
-    <img class="genre {{pokemon.getTypes()[0]}}" src="../../../assets/{{genre}}.svg" alt="genre {{genre}} image" (click)="change_genre()">
+    <img class="star {{pokemon.types[0]}}" src="../../../assets/{{star}}.svg" alt="star image" (click)="change_star()">
+    <img class="genre {{pokemon.types[0]}}" src="../../../assets/{{genre}}.svg" alt="genre {{genre}} image" (click)="change_genre()">
   </div>
 
   <div class="pokemon">
-    <img class="poke-img" src="{{sprit}}" alt="{{pokemon.getName()}} image" (click)="change_position()">
+    <img class="poke-img" src="{{sprit}}" alt="{{pokemon.name}} image" (click)="change_position()">
     <div class="info">
-      <p id="id">#{{pokemon.getID()}}</p>
-      <p id="name">{{pokemon.getName()}}</p>
+      <p id="id">#{{pokemon.id}}</p>
+      <p id="name">{{pokemon.name}}</p>
       <div class="types-list">
-        <poke-type  class="types" *ngFor="let type of pokemon.getTypes()" [name]="type" ></poke-type>
+        <poke-type  class="types" *ngFor="let type of pokemon.types" [name]="type" ></poke-type>
       </div>
     </div>
 
     <div class="dimensions">
       <img class="dim-img" src="../../assets/height.svg" alt="height icon">
-      <p>{{pokemon.getHeight()}} </p>
+      <p>{{pokemon.height}} </p>
       <img class="dim-img" src="../../assets/weight.svg" alt="weight icon">
-      <p>{{pokemon.getWeight()}} </p>
+      <p>{{pokemon.weight}} </p>
     </div>
 
   </div>
@@ -28,31 +28,31 @@
     <div class="container">
       <div class="row">
         <div class="col stat" id="hp">
-          <p class="base_stat">HP : {{pokemon.getStats()?.getHp()?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.getHp()?.effort}}</p>
+          <p class="base_stat">HP : {{pokemon.stats.hp.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.stats.hp.effort}}</p>
         </div>
         <div class="col stat" id="attack">
-          <p class="base_stat">ATTACK : {{pokemon.getStats()?.getAttack()?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.getAttack()?.effort}}</p>
+          <p class="base_stat">ATTACK : {{pokemon.stats.attack.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.stats.attack.effort}}</p>
         </div>
         <div class="col stat" id="defense">
-          <p class="base_stat">DEFENSE : {{pokemon.getStats()?.getDefense()?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.getDefense()?.effort}}</p>
+          <p class="base_stat">DEFENSE : {{pokemon.stats.defense.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.stats.defense.effort}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col stat" id="special_attack">
-          <p class="base_stat">SPECIAL ATTACK : {{pokemon.getStats()?.getSpecialAttack()?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.getSpecialAttack()?.effort}}</p>
+          <p class="base_stat">SPECIAL ATTACK : {{pokemon.stats.special_attack.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.stats.special_attack.effort}}</p>
         </div>
         <div class="col stat" id="special_defense">
-          <p class="base_stat">SPECIAL DEFENSE : {{pokemon.getStats()?.getSpecialDefense()?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.getSpecialDefense()?.effort}}</p>
+          <p class="base_stat">SPECIAL DEFENSE : {{pokemon.stats.special_defense.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.stats.special_defense.effort}}</p>
         </div>
         <div class="col stat" id="speed">
-          <p class="base_stat">SPEED : {{pokemon.getStats()?.getSpeed()?.base_stat}}</p>
-          <p class="effort">effort = {{pokemon.getStats()?.getSpeed()?.effort}}</p>
+          <p class="base_stat">SPEED : {{pokemon.stats.speed.base_stat}}</p>
+          <p class="effort">effort = {{pokemon.stats.speed.effort}}</p>
         </div>
       </div>
     </div>
@@ -60,14 +60,14 @@
 
   <div class="poke-body">
 
-    <div class="poke-evolution {{pokemon.getTypes()[0]}}">
+    <div class="poke-evolution {{pokemon.types[0]}}">
       <h2 class="title">Evolution</h2>
       <div class="evolution-chain">
-        <div class="poke-evo" *ngFor="let pokemon of evolutionChain.getPokemonOrderByID()">
-          <a class="link" [routerLink]="['/pokemon']" [queryParams]="{ name: pokemon.getName()}">
-            <img class="poke-img-evo" src="{{pokemon.getSprit()}}" alt="{{pokemon.getName()}} sprit">
-            <p class="poke-name-evo">{{pokemon.getName()}}</p>
-            <p class="poke-id-evo">#{{pokemon.getID()}}</p>
+        <div class="poke-evo" *ngFor="let pokemon of evolutionChain.pokemonOrderByID">
+          <a class="link" [routerLink]="['/pokemon']" [queryParams]="{ name: pokemon.name}">
+            <img class="poke-img-evo" src="{{pokemon.sprit}}" alt="{{pokemon.name}} sprit">
+            <p class="poke-name-evo">{{pokemon.name}}</p>
+            <p class="poke-id-evo">#{{pokemon.id}}</p>
           </a>
         </div>
       </div>
@@ -90,20 +90,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let move of pokemon.getMoves()">
-            <td><poke-type  class="types" [name]="move.getType()" ></poke-type></td>
-            <th scope="row">{{move.getName().replace("-", " ")| titlecase }}</th>
-            <td>{{move.getPower()}}</td>
-            <td>{{move.getPp()}}</td>
-            <td>{{move.getAccuracy()}}</td>
-            <td>{{move.getEffectChance()}}</td>
-            <td>{{move.getPriority()}}</td>
+          <tr *ngFor="let move of pokemon.moves">
+            <td><poke-type  class="types" [name]="move.type" ></poke-type></td>
+            <th scope="row">{{move.name.replace("-", " ")| titlecase }}</th>
+            <td>{{move.power}}</td>
+            <td>{{move.pp}}</td>
+            <td>{{move.accuracy}}</td>
+            <td>{{move.effectChance}}</td>
+            <td>{{move.priority}}</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-
 
 </div>
 

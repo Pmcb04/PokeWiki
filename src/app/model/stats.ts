@@ -3,65 +3,66 @@ interface Stat{
   base_stat : number;
 }
 export class Stats{
-  private hp : Stat = {base_stat : 0, effort : 0};
-  private speed : Stat = {base_stat : 0, effort : 0};
-  private attack : Stat = {base_stat : 0, effort : 0};
-  private defense : Stat = {base_stat : 0, effort : 0};
-  private special_attack : Stat = {base_stat : 0, effort : 0};
-  private special_defense : Stat = {base_stat : 0, effort : 0};
 
-  getHp(){
-    return this.hp
+  private _hp : Stat = {base_stat : 0, effort : 0};
+  private _speed : Stat = {base_stat : 0, effort : 0};
+  private _attack : Stat = {base_stat : 0, effort : 0};
+  private _defense : Stat = {base_stat : 0, effort : 0};
+  private _special_attack : Stat = {base_stat : 0, effort : 0};
+  private _special_defense : Stat = {base_stat : 0, effort : 0};
+
+  get hp() : Stat{
+    return this._hp;
   }
 
-  setHp(base_stat : number, effort : number){
-    this.hp.base_stat = base_stat;
-    this.hp.effort = effort;
+  set hp(stat : Stat){
+    this._hp.base_stat = stat.base_stat;
+    this._hp.effort = stat.effort;
   }
 
-  getSpeed(){
-    return this.speed
+  get speed() : Stat{
+    return this._speed;
   }
 
-  setSpeed(base_stat : number, effort : number){
-    this.speed.base_stat = base_stat;
-    this.speed.effort = effort;
+  set speed(stat : Stat){
+    this._speed.base_stat = stat.base_stat;
+    this._speed.effort = stat.effort;
   }
 
-  getAttack(){
-    return this.attack
+  get attack() : Stat{
+    return this._attack;
   }
 
-  setAttack(base_stat : number, effort : number){
-    this.attack.base_stat = base_stat;
-    this.attack.effort = effort;
+  set attack(stat : Stat){
+    this._attack.base_stat = stat.base_stat;
+    this._attack.effort = stat.effort;
   }
 
-  getDefense(){
-    return this.defense
+  get defense() : Stat{
+    return this._defense;
   }
 
-  setDefense(base_stat : number, effort : number){
-    this.defense.base_stat = base_stat;
-    this.defense.effort = effort;
+  set defense(stat : Stat){
+    this._defense.base_stat = stat.base_stat;
+    this._defense.effort = stat.effort;
   }
 
-  getSpecialAttack(){
-    return this.special_attack
+  get special_attack() : Stat{
+    return this._special_attack;
   }
 
-  setSpecialAttack(base_stat : number, effort : number){
-    this.special_attack.base_stat = base_stat;
-    this.special_attack.effort = effort;
+  set special_attack(stat : Stat){
+    this._special_attack.base_stat = stat.base_stat;
+    this._special_attack.effort = stat.effort;
   }
 
-  getSpecialDefense(){
-    return this.special_defense
+  get special_defense() : Stat{
+    return this._special_defense;
   }
 
-  setSpecialDefense(base_stat : number, effort : number){
-    this.special_defense.base_stat = base_stat;
-    this.special_defense.effort = effort;
+  set special_defense(stat : Stat){
+    this._special_attack.base_stat = stat.base_stat;
+    this._special_attack.effort = stat.effort;
   }
 
 }

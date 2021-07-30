@@ -1,20 +1,20 @@
 export class PokemonChain{
   constructor(
-    private id : number,
-    private name : string,
-    private sprit : string
+    private _id : number,
+    private _name : string,
+    private _sprit : string
   ){}
 
-  getID() : number{
-    return this.id;
+  get id() : number{
+    return this._id;
   }
 
-  getName() : string{
-    return this.name;
+  get name() : string{
+    return this._name;
   }
 
-  getSprit() : string{
-    return this.sprit;
+  get sprit() : string{
+    return this._sprit;
   }
 
 }
@@ -29,20 +29,20 @@ export class EvolutionChain {
     this.numberPokemon++;
   }
 
-  length() : number{
-    return this.numberPokemon;
-  }
-
   get(index : number) : PokemonChain{
     return this.chain[index];
   }
 
-  getPokemon() : PokemonChain[]{
+  get length() : number{
+    return this.numberPokemon;
+  }
+
+  get pokemon() : PokemonChain[]{
     return this.chain;
   }
 
-  getPokemonOrderByID() : PokemonChain[]{
-    return this.chain.sort((a,b) => (a.getID() > b.getID()) ? 1 : ((b.getID() > a.getID()) ? -1 : 0));
+  get pokemonOrderByID() : PokemonChain[]{
+    return this.chain.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
   }
 
 }

@@ -5,106 +5,106 @@ import { Sprites } from "./sprites"
 export class Pokemon{
 
     public constructor(
-      private id? : number,
-      private name? : string,
-      private types? : string[],
-      private sprites? : Sprites,
-      private height? : number,
-      private weight? : number,
-      private stats? : Stats,
-      private moves? : Move[]
+      private _id? : number,
+      private _name? : string,
+      private _types? : string[],
+      private _sprites? : Sprites,
+      private _height? : number,
+      private _weight? : number,
+      private _stats? : Stats,
+      private _moves? : Move[]
     ){};
 
-    getID() : number{
-      return this.id as number
+    get id() : number{
+      return this._id as number
     }
 
-    getName() : string{
-      return this.name as string
+    get name() : string{
+      return this._name as string
     }
 
-    getTypes() : string[]{
-      return this.types as string[]
+    get types() : string[]{
+      return this._types as string[]
     }
 
-    getFrontSpriteMale() : string{
-      return this.sprites?.getFrontSpriteMale() as string
+    get frontSpriteMale() : string{
+      return this._sprites?.frontSpriteMale as string
     }
 
-    getFrontShinyMale() : string{
-      return this.sprites?.getFrontShinyMale() as string
+    get frontShinyMale() : string{
+      return this._sprites?.frontShinyMale as string
     }
 
-    getBackSpriteMale() : string{
-      return this.sprites?.getBackSpriteMale() as string
+    get backSpriteMale() : string{
+      return this._sprites?.backSpriteMale as string
     }
 
-    getBackShinyMale() : string{
-      return this.sprites?.getBackShinyMale() as string
+    get backShinyMale() : string{
+      return this._sprites?.backShinyMale as string
     }
 
-    getFrontSpriteFemale() : string{
-      return this.sprites?.getFrontSpriteFemale() as string
+    get frontSpriteFemale() : string{
+      return this._sprites?.frontSpriteFemale as string
     }
 
-    getFrontShinyFemale() : string{
-      return this.sprites?.getFrontShinyFemale() as string
+    get frontShinyFemale() : string{
+      return this._sprites?.frontShinyFemale as string
     }
 
-    getBackSpriteFemale() : string{
-      return this.sprites?.getBackSpriteFemale() as string
+    get backSpriteFemale() : string{
+      return this._sprites?.backSpriteFemale as string
     }
 
-    getBackShinyFemale() : string{
-      return this.sprites?.getBackShinyFemale() as string
+    get backShinyFemale() : string{
+      return this._sprites?.backShinyFemale as string
     }
 
     getNewSprit(isShiny: boolean, isFemale: boolean, isBack: boolean): string {
       if(isBack){
         if(isShiny){
           if(isFemale){
-            return this.getBackShinyFemale();
+            return this.backShinyFemale;
           }else{
-            return this.getBackShinyMale();
+            return this.backShinyMale;
           }
         }else{
           if(isFemale){
-            return this.getBackSpriteFemale();
+            return this.backSpriteFemale;
           }else{
-            return this.getBackSpriteMale();
+            return this.backSpriteMale;
           }
         }
       }else{
         if(isShiny){
           if(isFemale){
-            return this.getFrontShinyFemale();
+            return this.frontShinyFemale;
           }else{
-            return this.getFrontShinyMale();
+            return this.frontShinyMale;
           }
         }else{
           if(isFemale){
-            return this.getFrontSpriteFemale();
+            return this.frontSpriteFemale;
           }else{
-            return this.getFrontSpriteMale();
+            return this.frontSpriteMale;
           }
         }
       }
     }
 
-    getHeight() : number{
-      return this.height as number;
+    get height() : number{
+      return this._height as number;
     }
 
-    getWeight() : number{
-      return this.weight as number;
+    get weight() : number{
+      return this._weight as number;
     }
 
-    getStats() : Stats{
-      return this.stats as Stats;
+    get stats() : Stats{
+      return this._stats as Stats;
     }
 
-    getMoves() : Move[]{
-      return this.moves as Move[];
+    get moves() : Move[]{
+      return this._moves as Move[];
     }
 }
 

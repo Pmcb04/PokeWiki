@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PokeTableComponent } from './components/poke-table/poke-table.component';
 import { PokeItemsComponent } from './components/poke-items/poke-items.component';
 import { PokeBerriesComponent } from './components/poke-berries/poke-berries.component';
+import { NavegationBottomsComponent } from './components/navegation-bottoms/navegation-bottoms.component';
 
 const routes: Routes = [
   { path : 'pokemon' , component : PokeViewComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
     PokeTableComponent,
     PokeItemsComponent,
     PokeBerriesComponent,
+    NavegationBottomsComponent,
   ],
   imports: [
     BrowserModule,
