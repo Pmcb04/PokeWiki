@@ -1,11 +1,10 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router'
 import { EvolutionChain, PokemonChain } from 'src/app/model/evolution-chain';
 import { Move } from 'src/app/model/move';
 import { Pokemon } from 'src/app/model/pokemon';
 import { Sprites } from 'src/app/model/sprites';
-import { Stats } from 'src/app/model/stats';
+import { Stat, Stats } from 'src/app/model/stats';
 import { PokemonService } from 'src/app/services/pokemon-service.service';
 
 @Component({
@@ -60,7 +59,7 @@ export class PokeViewComponent implements OnInit {
 
           this.pokemon = new Pokemon(data.id, data.name, typesPokemon, spritesPokemon, data.height, data.weight, statsPokemon, movesPokemon);
 
-          this.sprit = this.pokemon.getFrontSpriteMale();
+          this.sprit = this.pokemon.frontSpriteMale;
           this.isShiny = false;
           this.isFemale = false;
           this.isBack = false;
@@ -79,22 +78,22 @@ export class PokeViewComponent implements OnInit {
 
       switch (data[index].stat.name) {
         case 'hp':
-          stats.setHp(data[index].base_stat, data[index].effort);
+          stats.hp = new Stat(data[index].base_stat, data[index].effort);
           break;
         case 'attack':
-          stats.setAttack(data[index].base_stat, data[index].effort);
+          stats.attack =  new Stat(data[index].base_stat, data[index].effort);
           break;
         case 'defense':
-          stats.setDefense(data[index].base_stat, data[index].effort);
+          stats.defense = new Stat(data[index].base_stat, data[index].effort);
           break;
         case 'special-attack':
-          stats.setSpecialAttack(data[index].base_stat, data[index].effort);
+          stats.special_attack = new Stat(data[index].base_stat, data[index].effort);
           break;
         case 'special-defense':
-          stats.setSpecialDefense(data[index].base_stat, data[index].effort);
+          stats.special_defense = new Stat(data[index].base_stat, data[index].effort);
           break;
         case 'speed':
-          stats.setSpeed(data[index].base_stat, data[index].effort);
+          stats.speed = new Stat(data[index].base_stat, data[index].effort);
           break;
         default:
           break;

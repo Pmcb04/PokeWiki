@@ -1,15 +1,31 @@
-interface Stat{
-  effort : number;
-  base_stat : number;
+export class Stat{
+  constructor(private _base_stat? : number, private _effort? : number){ }
+
+  get base_stat() : number{
+    return this._base_stat as number;
+  }
+
+  set base_stat(number : number){
+    this._base_stat = number;
+  }
+
+  get effort() : number{
+    return this._base_stat as number;
+  }
+
+  set effort(number : number){
+    this._effort = number;
+  }
+
 }
 export class Stats{
 
-  private _hp : Stat = {base_stat : 0, effort : 0};
-  private _speed : Stat = {base_stat : 0, effort : 0};
-  private _attack : Stat = {base_stat : 0, effort : 0};
-  private _defense : Stat = {base_stat : 0, effort : 0};
-  private _special_attack : Stat = {base_stat : 0, effort : 0};
-  private _special_defense : Stat = {base_stat : 0, effort : 0};
+  private _hp : Stat = new Stat();
+  private _speed : Stat = new Stat();
+  private _attack : Stat = new Stat();
+  private _defense : Stat = new Stat();
+  private _special_attack : Stat = new Stat();
+  private _special_defense : Stat = new Stat();
 
   get hp() : Stat{
     return this._hp;

@@ -3,7 +3,7 @@ import { Berry } from 'src/app/model/berry';
 import { PokemonService } from 'src/app/services/pokemon-service.service';
 
 @Component({
-  selector: 'app-poke-berries',
+  selector: 'poke-berries',
   templateUrl: './poke-berries.component.html',
   styleUrls: ['./poke-berries.component.css']
 })

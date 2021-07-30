@@ -57,7 +57,7 @@ export class PokeListComponent implements OnInit{
                             this.spritesPokemon(data.sprites)
                             );
         list.push(pokemon);
-        list.sort((a,b) => (a.getID() > b.getID()) ? 1 : ((b.getID() > a.getID()) ? -1 : 0));
+        list.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
       }
     )
 

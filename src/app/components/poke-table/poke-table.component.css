@@ -129,3 +129,10 @@ td{
 .eff2{
   background-color: var(--color-eff-veryeffective);
 }
+
+.highlight{
+
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+}

@@ -1,5 +1,6 @@
 import { TypeScriptEmitter } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon-service.service';
 
 @Component({
@@ -14,9 +15,16 @@ export class PokeTableComponent implements OnInit {
                        "ground", "ice", "normal", "poison", "psychic",
                        "rock", "steel", "water"]
 
+  typeParams : string = "";
+
   damageMatrix : Map<string, Map<string,string>> = new Map<string, Map<string, string>>();
 
-  constructor(private pokeService : PokemonService) {
+  constructor(private route: ActivatedRoute, private pokeService : PokemonService) {
+
+    // obtenemos el parametro que nos viene por queryParams
+    this.route.queryParams.subscribe (params =>{
+      this.typeParams = params['type'];
+    });
 
     // Inicializamos cada map con su correspondiente tipo y su mapa
     this.types.forEach(element => {

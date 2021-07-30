@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor="let type of damageMatrix | keyvalue">
+      <tr *ngFor="let type of damageMatrix | keyvalue">
         <th scope="row" class="type {{type.key}}">{{type.key | titlecase}}</th>
         <td class="eff{{damage.value.replace('.', '') }}" *ngFor="let damage of type.value | keyvalue">{{damage.value | number}}</td>
       </tr>
