@@ -5,12 +5,22 @@
       <tr>
         <th scope="col">Sprit</th>
         <th scope="col">Name</th>
+        <th scope="col">Growth Time</th>
+        <th scope="col">Max Harvest</th>
+        <th scope="col">Size</th>
+        <th scope="col">Natural Gift Power</th>
+        <th scope="col">Natural Gift Type</th>
       </tr>
     </thead>
     <tbody>
       <tr  *ngFor="let berry of berriesList">
-        <td><img src="{{berry.getSprit()}}" alt="{{berry.getName()}} image"></td>
-        <td>{{berry.getName().replace("-", " ") | titlecase}}</td>
+        <td><img src="{{berry.sprit}}" alt="{{berry.name}} image"></td>
+        <td>{{berry.name.replace("-", " ") | titlecase}}</td>
+        <td>{{berry.growth_time}}</td>
+        <td>{{berry.max_harvest}}</td>
+        <td>{{berry.size}}</td>
+        <td>{{berry.natural_gift_power}}</td>
+        <td><poke-type [name]="berry.natural_gift_type" ></poke-type>   </td>
       </tr>
     </tbody>
   </table>

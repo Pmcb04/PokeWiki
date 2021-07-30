@@ -1,16 +1,43 @@
 export class Berry {
 
   constructor(
-    private name : string,
-    private sprit : string
+    private _name : string,
+    private _sprit : string,
+    private _growth_time : number,
+    private _max_harvest : number,
+    private _natural_gift_power : number,
+    private _size : number,
+    private _natural_gift_type : string
   ){ }
 
-  getName(){
-    return this.name;
+  get name() : string{
+    return this._name;
   }
 
-  getSprit(){
-    return this.sprit;
+  get sprit() : string{
+    return this._sprit;
   }
+
+  get growth_time() : number{
+    return this._growth_time;
+  }
+
+  get max_harvest() : number {
+    return this._max_harvest;
+  }
+
+  get natural_gift_power() : number {
+    return this._natural_gift_power;
+  }
+
+  get size() : number {
+    return this._size;
+  }
+
+  get natural_gift_type() : string {
+    return this._natural_gift_type;
+  }
+
+
 
 }

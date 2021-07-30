@@ -1,15 +1,25 @@
 export class Item {
   constructor(
-    private name : string,
-    private sprit : string
+    private _name : string,
+    private _sprit : string,
+    private _cost : number,
+    private _category : string
   ){ }
 
-  getName(){
-    return this.name;
+  get name() : string{
+    return this._name;
   }
 
-  getSprit(){
-    return this.sprit;
+  get sprit() : string{
+    return this._sprit;
+  }
+
+  get cost() : number {
+    return this._cost;
+  }
+
+  get category() : string {
+    return this._category;
   }
 
 }

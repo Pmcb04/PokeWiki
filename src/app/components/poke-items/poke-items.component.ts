@@ -72,7 +72,7 @@ export class PokeItemsComponent implements OnInit {
     for (let index = 0; index < data.results.length; index++) {
       this.pokeService.getByURL(data.results[index].url).subscribe(
         data =>{
-          this.itemList.push(new Item(data.name, data.sprites.default));
+          this.itemList.push(new Item(data.name, data.sprites.default, data.cost, data.category.name));
         }
       )
     }

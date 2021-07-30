@@ -71,10 +71,18 @@ export class PokeBerriesComponent implements OnInit {
 
     for (let index = 0; index < data.results.length; index++) {
       this.pokeService.getByURL(data.results[index].url).subscribe(
-        data =>{
-          this.pokeService.getByURL(data.item.url).subscribe(
-            data =>{
-              this.berriesList.push(new Berry(data.name, data.sprites.default));
+        data1 =>{
+          this.pokeService.getByURL(data1.item.url).subscribe(
+            data2 =>{
+              this.berriesList.push(new Berry(
+                                      data2.name,
+                                      data2.sprites.default,
+                                      data1.growth_time,
+                                      data1.max_harvest,
+                                      data1.natural_gift_power,
+                                      data1.size,
+                                      data1.natural_gift_type.name
+                                    ));
             }
           )
         }
