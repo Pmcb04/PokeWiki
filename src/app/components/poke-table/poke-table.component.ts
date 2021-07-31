@@ -23,12 +23,9 @@ export class PokeTableComponent implements OnInit {
 
   damageMatrix : Map<string, Map<string,string>> = new Map<string, Map<string, string>>();
 
-  constructor(private route: ActivatedRoute, private pokeService : PokemonService) {
+  constructor(private route: ActivatedRoute, private pokeService : PokemonService) {}
 
-    // Obtenemos el parametro que nos viene por queryParams
-    this.route.queryParams.subscribe (params =>{
-      this.typeParams = params['type'];
-    });
+  ngOnInit(): void {
 
     // Inicializamos cada map con su correspondiente tipo y su mapa
     this.types.forEach(element => {
@@ -47,9 +44,11 @@ export class PokeTableComponent implements OnInit {
       this.getDamageType(element);
     });
 
-  }
-
-  ngOnInit(): void {
+    // Obtenemos el parametro que nos viene por queryParams
+    this.route.queryParams.subscribe (params =>{
+      this.typeParams = params['type'];
+      this.change_type();
+    });
 
   }
 
