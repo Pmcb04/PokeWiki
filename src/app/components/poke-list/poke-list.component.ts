@@ -1,4 +1,3 @@
-import { NodeWithI18n } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router'
 import { Sprites } from 'src/app/model/sprites';
@@ -15,14 +14,15 @@ export class PokeListComponent implements OnInit{
 
   pokeList : Array<Pokemon> = [];
 
-  constructor(private route: ActivatedRoute, private pokeService : PokemonService){
+  constructor(private route: ActivatedRoute, private pokeService : PokemonService){}
+
+  ngOnInit(){
     this.route.queryParams.subscribe (params =>{
+      this.pokeList = [];
       if(params['type']) this.getPokemonByType(this.pokeList, params['type']);
       else this.getListPokemon(this.pokeList, params['offset'], params['limit']);
     });
   }
-
-  ngOnInit(){}
 
   getPokemonByType(list : Pokemon[], type : string){
     this.pokeService.getType(type).subscribe(

@@ -24,31 +24,39 @@
         <a class="nav-link" [routerLink]="['/berries']">Berries</a>
       </li>
 
-      <!-- <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" ngbDropdown class="d-inline-block">
+        <a class="nav-link dropdown-toggle" href="#" ngbDropdownToggle
+               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Generaciones
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">1º Generación</a>
-          <a class="dropdown-item" href="#">2º Generación</a>
-          <a class="dropdown-item" href="#">3º Generación</a>
-          <a class="dropdown-item" href="#">4º Generación</a>
-          <a class="dropdown-item" href="#">5º Generación</a>
-          <a class="dropdown-item" href="#">6º Generación</a>
-          <a class="dropdown-item" href="#">7º Generación</a>
-          <a class="dropdown-item" href="#">8º Generación</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li> -->
+        <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{offset : first_gen.offset, limit : first_gen.limit}">1ª Generación</a></li>
+          <li><a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{offset : second_gen.offset, limit : second_gen.limit}">2ª Generación</a></li>
+          <li><a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{offset : third_gen.offset, limit : third_gen.limit}">3ª Generación</a></li>
+          <li><a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{offset : forth_gen.offset, limit : forth_gen.limit}">4ª Generación</a></li>
+          <li><a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{offset : fifth_gen.offset, limit : fifth_gen.limit}">5ª Generación</a></li>
+          <li><a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{offset : sixth_gen.offset, limit : sixth_gen.limit}">6ª Generación</a></li>
+          <li><a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{offset : seventh_gen.offset, limit : seventh_gen.limit}">7ª Generación</a></li>
+          <li><a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{offset : eighth_gen.offset, limit : eighth_gen.limit}"> 8ª Generación</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown" ngbDropdown class="d-inline-block">
+        <a class="nav-link dropdown-toggle" href="#" ngbDropdownToggle
+               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Tipos
+        </a>
+        <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li class="poke-type" *ngFor="let type of types">
+            <a class="dropdown-item" href="" [routerLink]="['/list']" [queryParams]="{type : type}">
+              <div class="tipo">
+                <img src="../../../assets/types/{{type}}.svg" alt="{{type}} type icon">
+                <p>{{type | titlecase }}</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </li>
     </ul>
-    <!-- <form class="form-inline my-1 my-lg-2">
-      <input class="form-control mr-sm-2" type="search" placeholder="id o nombre" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form> -->
   </div>
 </nav>
