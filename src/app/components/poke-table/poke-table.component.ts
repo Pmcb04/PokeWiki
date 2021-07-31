@@ -1,4 +1,4 @@
-import { TypeScriptEmitter } from '@angular/compiler';
+import { keyframes } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon-service.service';
@@ -17,11 +17,15 @@ export class PokeTableComponent implements OnInit {
 
   typeParams : string = "";
 
+  strongTypes : string[] = [];
+  weakTypes : string[] = [];
+  inmuneTypes : string[] = [];
+
   damageMatrix : Map<string, Map<string,string>> = new Map<string, Map<string, string>>();
 
   constructor(private route: ActivatedRoute, private pokeService : PokemonService) {
 
-    // obtenemos el parametro que nos viene por queryParams
+    // Obtenemos el parametro que nos viene por queryParams
     this.route.queryParams.subscribe (params =>{
       this.typeParams = params['type'];
     });
@@ -38,18 +42,30 @@ export class PokeTableComponent implements OnInit {
       });
     });
 
-    // Por ultimo, calculamos el daño de cada tipo de movimiento
+    // Calculamos el daño de cada tipo de movimiento
     this.types.forEach(element => {
       this.getDamageType(element);
     });
 
-    console.log("damageMAtrix -> ",   this.damageMatrix);
   }
 
   ngOnInit(): void {
 
   }
 
+  change_type(){
+
+    this.strongTypes = [];
+    this.weakTypes = [];
+    this.inmuneTypes = [];
+
+    for (let [key, value] of this.damageMatrix.get(this.typeParams)!) {
+      if(value === "2") this.weakTypes.push(key);
+      else if(value === "0.5") this.strongTypes.push(key);
+      else if (value === "0") this.inmuneTypes.push(key);
+    }
+
+  }
 
   // from lista de tipos a los que hacen daño a el tipo calculado
   // to lista de tipos a los que hace daño a el tipo calculado
@@ -68,7 +84,7 @@ export class PokeTableComponent implements OnInit {
             this.damageMatrix.get(type)!.set( data.damage_relations.no_damage_from[index].name, "0");
 
           // for (let index = 0; index < data.damage_relations.double_damage_to.length; index++)
-          //   this.damageMatrix.get(data.damage_relations.double_damage_to[index].name)!.set(type, "x2");
+          //   this.damageMatrix.get(data.damage_relations.double_damage_to[index].name)!.set(type, "2");
 
           // for (let index = 0; index < data.damage_relations.half_damage_to.length; index++)
           //   this.damageMatrix.get(data.damage_relations.half_damage_to[index].name)!.set(type, "1/2");

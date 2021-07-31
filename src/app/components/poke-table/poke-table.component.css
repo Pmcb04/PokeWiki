@@ -22,14 +22,98 @@
   --color-eff-veryeffective:#ccfbcc;
 }
 
-td:empty::before {content: "1"}
 
-table {
-  width: 100%;
+.table-types{
+  margin-top: 40px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
 }
 
-.container{
-  margin-top: 50px;
+.type-info{
+  width: 30%;
+  border: 1px;
+  border-color: rgb(175, 175, 175);
+  border-style: solid;
+  margin: 30px;
+}
+
+.type-info .type-name *{
+  display: inline-block
+}
+
+.type-info .type-name h2{
+  font-size: 64px;
+  font-variant: small-caps;
+  color: white;
+  font-weight: bold;
+}
+
+.type-info .types-versus{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+
+.type-info .type-container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  float: left;
+  margin: 10px;
+}
+
+.strong{
+  background-color: var(--color-eff-veryeffective);
+  padding: 20px;
+}
+
+.strong h3{
+  color: #085208;
+  font-weight: bold;
+}
+
+.weak{
+  background-color: var(--color-eff-noteffective);
+  padding: 20px;
+}
+
+.weak h3{
+  color: #6e1010;
+  font-weight: bold;
+}
+
+.inmune{
+  background-color: var(--color-eff-immune);
+  padding: 20px;
+}
+
+.inmune h3{
+  color: #575757;
+  font-weight: bold;
+}
+
+.table {
+  width: 70%;
+  margin: 30px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+td:empty::before {content: "1"}
+
+tr:hover{
+  background-color: aqua;
+}
+
+th:hover{
+  cursor: pointer;
 }
 
 .type{
@@ -114,10 +198,6 @@ td{
   background-color: var(--color-water);
 }
 
-.eff{
-  background-color: white;
-}
-
 .eff0{
   background-color: var(--color-eff-immune);
 }
@@ -128,11 +208,4 @@ td{
 
 .eff2{
   background-color: var(--color-eff-veryeffective);
-}
-
-.highlight{
-
-  border: 1px;
-  border-style: solid;
-  border-color: black;
 }

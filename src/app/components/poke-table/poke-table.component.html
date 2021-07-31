@@ -1,16 +1,58 @@
-<div class="container">
+<div class="table-types">
+
+  <div class="type-info" [hidden]="typeParams == null">
+    <div class="type-name {{typeParams}}">
+      <poke-type class="type-img"[name]="typeParams"></poke-type>
+      <h2>{{typeParams}}</h2>
+    </div>
+
+    <div class="types-versus">
+      <div class="strong">
+        <h3>Fuerte contra: </h3>
+        <div class="type-container" *ngFor="let type of strongTypes">
+          <poke-type (click)="change_type()" [name]="type"></poke-type>
+          <h5>{{type | titlecase}}</h5>
+        </div>
+      </div>
+
+      <div class="weak">
+        <h3>Debil contra : </h3>
+        <div class="type-container" *ngFor="let type of weakTypes">
+          <poke-type (click)="change_type()" [name]="type"></poke-type>
+          <h5>{{type | titlecase}}</h5>
+        </div>
+      </div>
+
+      <div class="inmune">
+        <h3>Inmune a : </h3>
+        <div class="type-container" *ngFor="let type of inmuneTypes">
+          <poke-type (click)="change_type()" [name]="type"></poke-type>
+          <h5>{{type | titlecase}}</h5>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
   <table class="table">
     <thead>
-      <tr>
+      <tr style="background-color: white;">
         <th scope="col" class="type"></th>
-        <th *ngFor="let type of types" scope="col" class="type {{type}}">{{type | titlecase}}</th>
+        <th (click)="change_type()" *ngFor="let type of types" scope="col" class="type {{type}}">
+          <a [routerLink]="['/table']" [queryParams]="{type : type}">{{type | titlecase}}</a>
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let type of damageMatrix | keyvalue">
-        <th scope="row" class="type {{type.key}}">{{type.key | titlecase}}</th>
+        <th (click)="change_type()" class="type {{type.key}}">
+          <a [routerLink]="['/table']" [queryParams]="{type : type.key}">{{type.key | titlecase}}</a>
+        </th>
         <td class="eff{{damage.value.replace('.', '') }}" *ngFor="let damage of type.value | keyvalue">{{damage.value | number}}</td>
       </tr>
     </tbody>
   </table>
+
 </div>
