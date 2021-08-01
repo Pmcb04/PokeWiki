@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Item } from 'src/app/model/item';
 import { PokemonService } from 'src/app/services/pokemon-service.service';
 
@@ -13,56 +14,40 @@ export class PokeItemsComponent implements OnInit {
   private limit : number = 20;
   private count : number = 0;
 
-  private next : string = "";
-  private previous : string = "";
-
+  page : number = 1;
   itemList : Item[] = [];
 
-  constructor(private pokeService : PokemonService) {
-
-    this.pokeService.getItems(this.offset, this.limit).subscribe(
-      data =>{
-        console.log(data);
-        this.next = data.next;
-        this.previous = data.previous;
-        this.count = data.count;
-
-        this.getListItems(data);
-        console.log("itemList _> ", this.itemList);
-
-      }
-    )
-
+  constructor(private route: ActivatedRoute, private pokeService : PokemonService) {
+    this.getItems(this.offset, this.limit);
+    this.route.queryParams.subscribe (params =>{
+      this.page = params['page'];
+    });
   }
 
   ngOnInit(): void {
   }
 
   previousPage(){
-    console.log("Retrocede pagina");
-    console.log("previous -> ", this.previous);
-    this.getItems(this.previous)
-    this.offset -= this.limit;
+    if(this.offset > 0){
+      this.offset -= this.limit;
+      this.getItems(this.offset, this.limit);
+    }
   }
 
   nextPage(){
-    console.log("Avanza pagina");
-    console.log("next -> ", this.next);
-    this.getItems(this.next);
-    this.offset += this.limit;
+    if(this.offset + this.limit < this.count){
+      this.offset += this.limit;
+      this.getItems(this.offset, this.limit);
+    }
   }
 
-  getItems(url : string){
-    this.pokeService.getByURL(url).subscribe(
+  getItems(offset : number, limit : number){
+    this.pokeService.getItems(this.offset, this.limit).subscribe(
       data =>{
-        console.log(data);
-        this.next = data.next;
-        this.previous = data.previous;
-
+        this.count = data.count;
         this.getListItems(data);
       }
     )
-
   }
 
   getListItems(data : any){

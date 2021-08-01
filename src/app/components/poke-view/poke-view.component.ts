@@ -56,7 +56,6 @@ export class PokeViewComponent implements OnInit {
           var spritesPokemon : Sprites = this.spritesPokemon(data.sprites);
           this.getEvolutionChain(data.species.url);
 
-
           this.pokemon = new Pokemon(data.id, data.name, typesPokemon, spritesPokemon, data.height, data.weight, statsPokemon, movesPokemon);
 
           this.sprit = this.pokemon.frontSpriteMale;
@@ -81,7 +80,7 @@ export class PokeViewComponent implements OnInit {
           stats.hp = new Stat(data[index].base_stat, data[index].effort);
           break;
         case 'attack':
-          stats.attack =  new Stat(data[index].base_stat, data[index].effort);
+          stats.attack = new Stat(data[index].base_stat, data[index].effort);
           break;
         case 'defense':
           stats.defense = new Stat(data[index].base_stat, data[index].effort);

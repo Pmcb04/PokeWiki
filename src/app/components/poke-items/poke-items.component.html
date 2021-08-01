@@ -13,7 +13,7 @@
       <tr  *ngFor="let item of itemList">
         <td><img src="{{item.sprit}}" alt="{{item.name}} image"></td>
         <td>{{item.name.replace("-", " ") | titlecase}}</td>
-        <td>{{item.cost}}</td>
+        <td>{{item.cost}} ₽</td>
         <td>{{item.category.replace("-", " ") | titlecase}}</td>
       </tr>
     </tbody>
@@ -21,4 +21,9 @@
 </div>
 
 <a class="navegation previous" (click)="previousPage()" >Previous</a>
+
+<!-- <p>{{page-1}}</p>
+<p>{{page}}</p>
+<p>{{page+1}}</p> -->
+
 <a class="navegation next" (click)="nextPage()">Next</a>

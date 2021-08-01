@@ -13,52 +13,33 @@ export class PokeBerriesComponent implements OnInit {
   private limit : number = 20;
   private count : number = 0;
 
-  private next : string = "";
-  private previous : string = "";
-
   berriesList : Berry[] = [];
 
   constructor(private pokeService : PokemonService) {
-
-    this.pokeService.getBerries(this.offset, this.limit).subscribe(
-      data =>{
-        console.log(data);
-        this.next = data.next;
-        this.previous = data.previous;
-        this.count = data.count;
-
-        this.getListBerries(data);
-        console.log("BerryList _> ", this.berriesList);
-
-      }
-    )
-
+    this.getBerries(this.offset, this.limit)
   }
 
   ngOnInit(): void {
   }
 
   previousPage(){
-    console.log("Retrocede pagina");
-    console.log("previous -> ", this.previous);
-    this.getBerries(this.previous)
-    this.offset -= this.limit;
+    if(this.offset > 0){
+      this.offset -= this.limit;
+      this.getBerries(this.offset, this.limit);
+    }
   }
 
   nextPage(){
-    console.log("Avanza pagina");
-    console.log("next -> ", this.next);
-    this.getBerries(this.next);
-    this.offset += this.limit;
+    if(this.offset + + this.limit < this.count){
+      this.offset += this.limit;
+      this.getBerries(this.offset, this.limit);
+    }
   }
 
-  getBerries(url : string){
-    this.pokeService.getByURL(url).subscribe(
+  getBerries(offset : number, limit : number){
+    this.pokeService.getBerries(offset, limit).subscribe(
       data =>{
-        console.log(data);
-        this.next = data.next;
-        this.previous = data.previous;
-
+        this.count = data.count;
         this.getListBerries(data);
       }
     )

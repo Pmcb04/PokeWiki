@@ -10,7 +10,7 @@ export class Stat{
   }
 
   get effort() : number{
-    return this._base_stat as number;
+    return this._effort as number;
   }
 
   set effort(number : number){
@@ -77,8 +77,8 @@ export class Stats{
   }
 
   set special_defense(stat : Stat){
-    this._special_attack.base_stat = stat.base_stat;
-    this._special_attack.effort = stat.effort;
+    this._special_defense.base_stat = stat.base_stat;
+    this._special_defense.effort = stat.effort;
   }
 
 }

@@ -30,3 +30,7 @@
 .table{
   height: 1000px;
 }
+
+tr:hover{
+  background-color: aqua;
+}
