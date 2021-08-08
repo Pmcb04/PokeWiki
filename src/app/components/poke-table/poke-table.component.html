@@ -7,7 +7,7 @@
     </div>
 
     <div class="types-versus">
-      <div class="strong">
+      <div class="strong" [hidden]="!strongTypes.length">
         <h3>Fuerte contra: </h3>
         <div class="type-container" *ngFor="let type of strongTypes">
           <poke-type (click)="change_type()" [name]="type"></poke-type>
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="weak">
+      <div class="weak" [hidden]="!weakTypes.length">
         <h3>Debil contra : </h3>
         <div class="type-container" *ngFor="let type of weakTypes">
           <poke-type (click)="change_type()" [name]="type"></poke-type>
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="inmune">
+      <div class="inmune" [hidden]="!inmuneTypes.length">
         <h3>Inmune a : </h3>
         <div class="type-container" *ngFor="let type of inmuneTypes">
           <poke-type (click)="change_type()" [name]="type"></poke-type>
