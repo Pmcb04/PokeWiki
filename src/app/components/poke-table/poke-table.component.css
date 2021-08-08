@@ -41,8 +41,8 @@
   display: inline-block
 }
 
-.type-info .type-name h2{
-  font-size: 64px;
+.type-info .type-name h1{
+  font-size: 32px;
   font-variant: small-caps;
   color: white;
   font-weight: bold;
@@ -61,6 +61,18 @@
   align-items: flex-end;
   float: left;
   margin: 10px;
+}
+
+.type-name{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.type-name * {
+  padding: 5px;
 }
 
 .strong{
