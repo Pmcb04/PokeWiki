@@ -80,16 +80,10 @@ export class PokeTableComponent implements OnInit {
             this.damageMatrix.get(type)!.set(data.damage_relations.half_damage_from[index].name, "0.5");
 
           for (let index = 0; index < data.damage_relations.no_damage_from.length; index++)
-            this.damageMatrix.get(type)!.set( data.damage_relations.no_damage_from[index].name, "0");
+            this.damageMatrix.get(type)!.set( data.damage_relations.no_damage_from[index].name, "0")
 
-          // for (let index = 0; index < data.damage_relations.double_damage_to.length; index++)
-          //   this.damageMatrix.get(data.damage_relations.double_damage_to[index].name)!.set(type, "2");
-
-          // for (let index = 0; index < data.damage_relations.half_damage_to.length; index++)
-          //   this.damageMatrix.get(data.damage_relations.half_damage_to[index].name)!.set(type, "1/2");
-
-          // for (let index = 0; index < data.damage_relations.no_damage_to.length; index++)
-          //   this.damageMatrix.get(data.damage_relations.no_damage_to[index].name)!.set(type, "0");
+          // Comprobamos si algun tipo a sido pasado por parametro en la url para mostrar sus datos
+          if(this.typeParams !== "") this.change_type();
 
 
       }
